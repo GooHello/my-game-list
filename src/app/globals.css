@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Steam 经典色板 */
+  --steam-bg-main: #1b2838;
+  --steam-bg-dark: #171a21;
+  --steam-bg-card: #202d39;
+  --steam-bg-deep: #10141b;
+  
+  --steam-text-white: #ffffff;
+  --steam-text-light: #c7d5e0;
+  --steam-text-muted: #8f98a0;
+  
+  --steam-blue: #66c0f4;
+  --steam-blue-hover: #67c1f5;
+  
+  --background: var(--steam-bg-main);
+  --foreground: var(--steam-text-light);
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
+  background: var(--background);
+  /* Steam 网页端经典的顶部径向渐变背景 */
+  background-image: radial-gradient(circle at top center, #2a475e 0%, #1b2838 40%, #171a21 100%);
+  background-attachment: fixed;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1b20;
+    --foreground: #8f98a0;
+  }
 }
