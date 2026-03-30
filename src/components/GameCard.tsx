@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useRef, MouseEvent, useEffect } from 'react';
 
+const basePath = process.env.NODE_ENV === 'production' ? '/my-game-list' : '';
+
 interface GameCardProps {
   game: {
     id: string;
@@ -64,7 +66,10 @@ export default function GameCard({ game }: GameCardProps) {
   
   // 注意：因为配置了 basePath，如果 cover 是绝对路径（以 / 开头），
   // next/image 会自动处理它。但如果是 fallbackImage (data URI)，则不需要处理。
-  const coverSrc = game.cover ? game.cover : fallbackImage;
+  // 为生产环境的本地图片路径加上 basePath 前缀
+  const coverSrc = game.cover
+    ? (game.cover.startsWith('/') ? `${basePath}${game.cover}` : game.cover)
+    : fallbackImage;
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (isMobile || !cardRef.current) return;

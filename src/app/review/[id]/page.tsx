@@ -7,6 +7,8 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import gamesData from '../../../../data/games.json';
 
+const basePath = process.env.NODE_ENV === 'production' ? '/my-game-list' : '';
+
 // 告诉 Next.js 在构建时需要生成哪些静态页面
 export async function generateStaticParams() {
   // 找出所有有 reviewFile 的游戏
@@ -59,7 +61,7 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
     content = '> **错误**：读取拆解文档时发生异常。';
   }
 
-  const coverSrc = game.cover;
+  const coverSrc = game.cover && game.cover.startsWith('/') ? `${basePath}${game.cover}` : game.cover;
 
   const getStatusIcon = (status: string) => {
     switch (status) {
