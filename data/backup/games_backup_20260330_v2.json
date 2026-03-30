@@ -31,15 +31,8 @@
     "cover": "/covers/失落星船马拉松.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "撤离射击",
-      "玩家对战",
-      "多人",
-      "科幻",
-      "射击",
-      "第一人称射击",
-      "未来",
       "动作"
     ],
     "isAnchor": false,
@@ -57,13 +50,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "射击",
-      "多人",
-      "战术",
-      "动作",
-      "团队合作"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -80,9 +67,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "射击",
-      "战术射击",
-      "多人",
       "Mobile"
     ],
     "isAnchor": false,
@@ -101,9 +85,6 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "大逃杀",
-      "射击",
-      "多人",
       "Mobile"
     ],
     "isAnchor": false,
@@ -122,9 +103,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "射击",
-      "科幻",
       "Mobile"
     ],
     "isAnchor": false,
@@ -143,9 +121,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "射击",
-      "动作",
-      "多人",
       "Mobile"
     ],
     "isAnchor": false,
@@ -164,9 +139,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "射击",
-      "多人",
-      "竞技",
       "Mobile"
     ],
     "isAnchor": false,
@@ -183,11 +155,8 @@
     "cover": "/covers/bing_穿越火线枪战王者.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "射击",
-      "多人",
-      "竞技",
       "Mobile"
     ],
     "isAnchor": false,
@@ -206,9 +175,6 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "射击",
-      "多人",
-      "大逃杀",
       "Mobile"
     ],
     "isAnchor": false,
@@ -227,9 +193,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "射击",
-      "多人",
-      "战术",
       "Mobile"
     ],
     "isAnchor": false,
@@ -270,14 +233,8 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "免费开玩",
-      "大逃杀",
-      "多人",
-      "第一人称射击",
-      "射击",
-      "第一人称",
-      "玩家对战",
-      "动作"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -295,14 +252,7 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "免费开玩",
-      "第一人称射击",
-      "大逃杀",
-      "多人",
-      "射击",
-      "动作",
-      "单人",
-      "暴力"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -318,14 +268,8 @@
     "cover": "/covers/bing_堡垒之夜.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
-    "tags": [
-      "大逃杀",
-      "射击",
-      "建造",
-      "多人",
-      "免费开玩"
-    ],
+    "playStatus": "cleared",
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -340,16 +284,11 @@
     "cover": "/covers/远光84.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "免费开玩",
-      "大逃杀",
-      "多人",
-      "英雄射击",
-      "射击",
-      "第三人称射击",
-      "车辆作战",
-      "科幻"
+      "动作",
+      "冒险",
+      "大型多人在线"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -365,16 +304,9 @@
     "cover": "/covers/cs2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "射击",
-      "多人",
-      "竞技",
-      "动作",
-      "团队导向",
-      "电竞",
-      "战术"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -391,13 +323,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "playing",
-    "tags": [
-      "战术射击",
-      "多人",
-      "第一人称射击",
-      "电子竞技",
-      "免费开玩"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -412,14 +338,8 @@
     "cover": "/covers/bing_穿越火线.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
-    "tags": [
-      "第一人称射击",
-      "多人",
-      "竞技",
-      "免费开玩",
-      "经典"
-    ],
+    "playStatus": "cleared",
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -436,14 +356,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "机甲",
-      "多人",
-      "射击",
-      "单人",
-      "跑酷",
-      "动作",
-      "科幻"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -461,14 +374,9 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "第一人称射击",
-      "多人",
-      "射击",
-      "军事",
-      "单人",
-      "战争",
       "动作",
-      "第一人称"
+      "冒险",
+      "休闲"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -484,16 +392,10 @@
     "cover": "/covers/行星边际2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "免费开玩",
-      "第一人称射击",
-      "大型多人在线",
-      "射击",
       "动作",
-      "开放世界",
-      "多人",
-      "团队导向"
+      "大型多人在线"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -511,14 +413,7 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "破坏",
-      "免费开玩",
-      "第一人称射击",
-      "多人",
-      "射击",
-      "玩家对战",
-      "团队导向",
-      "竞技"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -534,16 +429,9 @@
     "cover": "/covers/军团要塞2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "免费开玩",
-      "英雄射击",
-      "多人",
-      "第一人称射击",
-      "射击",
-      "动作",
-      "职业导向",
-      "团队导向"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -559,14 +447,8 @@
     "cover": "/covers/bing_不羁联盟.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
-    "tags": [
-      "MOBA",
-      "射击",
-      "多人",
-      "团队合作",
-      "竞技"
-    ],
+    "playStatus": "cleared",
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -584,13 +466,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "冒险",
-      "单人",
-      "第一人称射击",
-      "开放世界",
-      "射击",
-      "合作",
-      "科幻"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -608,14 +484,7 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "免费开玩",
-      "英雄射击",
-      "第一人称射击",
-      "多人",
-      "团队导向",
-      "第一人称",
-      "多人在线战术竞技",
-      "第三人称射击"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -631,15 +500,10 @@
     "cover": "/covers/三角洲行动.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "免费开玩",
-      "第一人称射击",
-      "撤离射击",
-      "多人",
-      "射击",
       "动作",
-      "单人",
+      "冒险",
       "大型多人在线"
     ],
     "isAnchor": false,
@@ -656,16 +520,11 @@
     "cover": "/covers/灰区战争.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "战术",
-      "拟真",
-      "撤离射击",
-      "模拟",
-      "开放世界",
-      "军事",
-      "射击"
+      "动作",
+      "大型多人在线",
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -681,16 +540,9 @@
     "cover": "/covers/猎杀对决1896.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "撤离射击",
-      "多人",
-      "第一人称射击",
-      "玩家对战",
-      "团队导向",
-      "战术",
-      "开放世界",
-      "氛围"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -706,15 +558,9 @@
     "cover": "/covers/越来越黑暗darkanddarker.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "抢先体验",
-      "迷宫探索",
-      "多人",
-      "刷宝",
-      "中世纪",
-      "撤离射击",
-      "玩家对战",
+      "动作",
       "角色扮演"
     ],
     "isAnchor": false,
@@ -733,14 +579,9 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "军事",
-      "拟真",
-      "第一人称射击",
-      "玩家对战",
-      "多人",
-      "玩家对战环境",
-      "射击",
-      "战术"
+      "动作",
+      "大型多人在线",
+      "策略"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -758,14 +599,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "拟真",
-      "射击",
-      "军事",
-      "战术",
-      "多人",
-      "动作",
-      "第一人称"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -783,14 +617,8 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "战术",
-      "拟真",
-      "第一人称射击",
-      "射击",
-      "多人",
-      "单人",
-      "合作",
-      "恐怖"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -806,7 +634,7 @@
     "cover": "/covers/risingstorm2vietnam.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "动作",
       "大型多人在线",
@@ -829,14 +657,7 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "第一人称射击",
-      "玩家对战",
-      "多人",
-      "射击",
-      "战术",
-      "电竞",
-      "竞技",
-      "在线合作"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -854,14 +675,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "僵尸",
-      "合作",
-      "第一人称射击",
-      "多人",
-      "射击",
-      "在线合作",
-      "动作",
-      "生存"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -879,14 +693,7 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "恐怖",
-      "多人",
-      "生存恐怖",
-      "在线合作",
-      "合作",
-      "生存",
-      "血腥",
-      "团队导向"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -902,16 +709,10 @@
     "cover": "/covers/evolutiontag2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "动作即时战略",
-      "策略",
-      "基地建设",
-      "多人在线战术竞技",
-      "多人",
       "动作",
-      "即时战略",
-      "生存"
+      "策略"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -929,14 +730,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "射击",
-      "多人",
-      "水底",
-      "氛围",
-      "团队导向",
-      "恐怖",
-      "第一人称射击",
-      "血腥"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -954,14 +748,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "第一人称射击",
-      "外星人",
-      "多人",
-      "科幻",
-      "恐怖",
-      "射击",
-      "单人"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -979,14 +766,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "矮人",
-      "合作",
-      "玩家对战环境",
-      "第一人称射击",
-      "程序生成",
-      "职业导向",
-      "射击",
-      "探索"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1004,14 +784,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "在线合作",
-      "恐怖",
-      "合作",
-      "第一人称射击",
-      "多人",
-      "困难",
-      "射击",
-      "生存恐怖"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1027,16 +800,10 @@
     "cover": "/covers/收获日2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "合作",
       "动作",
-      "第一人称射击",
-      "劫掠",
-      "多人",
-      "刷宝射击游戏",
-      "在线合作",
-      "潜行"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1054,14 +821,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "恐怖",
-      "团队导向",
-      "战斗",
-      "合作",
-      "战锤 40K",
-      "第一人称射击",
-      "玩家对战环境",
-      "职业导向"
+      "动作",
+      "冒险",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1079,14 +841,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "玩家对战环境",
-      "刷宝射击游戏",
-      "开放世界",
-      "合作",
-      "刷宝",
-      "动作角色扮演",
-      "第一人称"
+      "动作",
+      "冒险",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1104,14 +861,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "僵尸",
-      "多人",
-      "在线合作",
-      "第一人称射击",
-      "血腥",
-      "后末日",
-      "砍杀",
-      "射击"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1129,14 +879,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "单人",
-      "平台游戏",
-      "解谜",
-      "第一人称",
-      "黑色幽默",
-      "剧情丰富",
-      "平台解谜",
-      "欢乐"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1155,13 +899,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "血腥",
-      "刷宝射击游戏",
-      "第一人称射击",
-      "合作",
-      "多人",
-      "忍者",
-      "砍杀"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1180,13 +918,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "冒险",
-      "第三人称射击",
-      "多人",
-      "合作",
-      "单人",
-      "射击",
-      "血腥"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1204,14 +936,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "多人",
-      "射击",
-      "第三人称射击",
-      "单人",
-      "太空",
-      "科幻",
       "动作",
-      "第一人称射击"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1227,16 +953,9 @@
     "cover": "/covers/绝地潜兵2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "在线合作",
-      "玩家对战环境",
-      "第三人称射击",
-      "多人",
-      "射击",
-      "动作",
-      "合作",
-      "科幻"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1252,16 +971,9 @@
     "cover": "/covers/雨中冒险2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "第三人称射击",
-      "动作类 Rogue",
-      "多人",
-      "合作",
-      "轻度 Rogue",
-      "类 Rogue",
-      "动作",
-      "刷宝射击游戏"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1279,14 +991,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "第三人称射击",
-      "射击",
-      "在线合作",
-      "科幻",
-      "3D",
-      "玩家对战环境",
-      "单人"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1304,14 +1009,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "战锤 40K",
-      "合作",
       "动作",
-      "第三人称射击",
-      "多人",
-      "玩家对战环境",
       "冒险",
-      "动作冒险"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1329,14 +1029,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "僵尸",
-      "多人",
-      "在线合作",
-      "单人",
-      "合作",
-      "动作",
-      "射击",
-      "第三人称射击"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1354,14 +1047,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
       "动作",
-      "色情内容",
-      "多人",
-      "犯罪",
-      "成人",
-      "射击",
-      "第三人称"
+      "冒险",
+      "竞速"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1379,13 +1067,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "刷宝射击游戏",
-      "多人",
-      "第三人称射击",
       "动作",
-      "合作",
-      "射击",
+      "冒险",
       "角色扮演"
     ],
     "isAnchor": false,
@@ -1404,14 +1087,8 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "免费开玩",
-      "开放世界",
-      "多人",
-      "刷宝射击游戏",
-      "大型多人在线角色扮演",
-      "第一人称射击",
-      "合作",
-      "玩家对战环境"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1429,14 +1106,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "资本主义",
-      "在线合作",
-      "超级英雄",
-      "刷宝射击游戏",
-      "动作",
-      "LGBTQ+",
-      "第三人称射击",
-      "开放世界"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1479,14 +1149,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "多人",
-      "策略",
-      "第一人称射击",
-      "团队导向",
       "动作",
-      "科幻",
-      "即时战略",
-      "外星人"
+      "策略"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1504,14 +1168,7 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "开放世界",
-      "多人",
-      "后末日",
-      "角色扮演",
-      "黑色喜剧",
-      "资本主义",
-      "生存",
-      "基地建设"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1527,16 +1184,9 @@
     "cover": "/covers/deadlock异锁.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "多人在线战术竞技",
-      "第三人称射击",
-      "多人",
-      "英雄射击",
-      "团队导向",
-      "竞技",
-      "射击",
-      "第三人称"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1552,7 +1202,7 @@
     "cover": "/covers/神之浩劫2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "动作",
       "冒险",
@@ -1573,16 +1223,11 @@
     "cover": "/covers/漫漫长夜.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "生存",
-      "开放世界生存制作",
-      "开放世界",
-      "探索",
-      "氛围",
-      "单人",
-      "第一人称",
-      "冒险"
+      "冒险",
+      "模拟",
+      "策略"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1600,14 +1245,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "生存",
-      "战争",
-      "氛围",
-      "单人",
-      "策略",
-      "选择取向",
-      "模拟",
-      "基地建设"
+      "冒险",
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1625,14 +1264,9 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "免费开玩",
-      "模拟",
-      "车辆作战",
-      "战斗",
-      "飞行",
-      "虚拟现实",
-      "二战",
-      "战争"
+      "动作",
+      "大型多人在线",
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1650,14 +1284,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "飞行",
-      "喷气机",
-      "军事",
-      "战争",
-      "街机",
-      "射击",
-      "电影式",
-      "3D"
+      "动作",
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1675,14 +1303,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "飞行",
       "动作",
-      "喷气机",
-      "战争",
-      "军事",
-      "独立",
-      "单人",
-      "街机"
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1725,14 +1347,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "动作",
-      "科幻",
-      "经典",
-      "单人",
-      "剧情丰富",
-      "射击",
-      "第一人称"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1775,14 +1390,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "暴力",
-      "黑色幽默",
-      "开放世界",
-      "成人",
-      "第一人称",
-      "欢乐",
-      "喜剧",
-      "沙盒"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1800,14 +1409,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "射击",
-      "第一人称",
-      "第一人称射击",
-      "角色扮演",
-      "单人",
-      "奇幻",
-      "冒险"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1826,13 +1428,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "沉浸式模拟",
-      "赛博朋克",
-      "冒险",
-      "科幻",
-      "恐怖",
-      "重制",
-      "第一人称射击"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1850,14 +1446,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "动作",
-      "射击",
-      "单人",
-      "军事",
-      "多人",
-      "战争",
-      "第一人称"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1875,14 +1464,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "冒险",
       "动作",
-      "第一人称射击",
-      "开放世界",
-      "单人",
-      "色情内容",
-      "动作冒险",
-      "恐怖"
+      "冒险",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1900,14 +1484,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "冒险",
-      "开放世界",
       "动作",
-      "生存",
-      "反乌托邦",
-      "第一人称",
-      "独立",
-      "心理恐怖"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1925,14 +1503,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "第一人称射击",
-      "子弹时间",
-      "时空操控",
-      "独立",
-      "单人",
-      "第一人称",
-      "射击"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1950,14 +1521,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "恐怖",
-      "第一人称射击",
-      "动作",
-      "子弹时间",
-      "经典",
-      "单人",
-      "射击",
-      "氛围"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -1975,14 +1539,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "第一人称射击",
-      "射击",
-      "科幻",
-      "潜行",
-      "单人",
-      "沙盒",
-      "外星人"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2000,14 +1557,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "僵尸",
-      "生存恐怖",
-      "恐怖",
-      "在线合作",
-      "开放世界",
-      "跑酷",
-      "第一人称",
-      "生存"
+      "动作",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2025,14 +1576,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "僵尸",
-      "开放世界",
-      "合作",
-      "多人",
-      "生存",
-      "动作",
-      "血腥",
-      "恐怖"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2050,14 +1594,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "第一人称射击",
-      "开放世界",
-      "后末日",
-      "车辆作战",
-      "汽车模拟",
-      "单人",
-      "血腥"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2075,14 +1612,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "后末日",
-      "第一人称射击",
-      "单人",
-      "开放世界",
-      "剧情丰富",
-      "氛围",
-      "动作",
-      "第一人称"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2100,14 +1630,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "射击",
-      "单人",
-      "第一人称射击",
-      "血腥",
-      "恐怖",
-      "暴力",
-      "动作",
-      "第一人称"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2126,12 +1649,6 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "第一人称射击",
-      "血腥",
-      "合作",
-      "射击",
-      "多人",
-      "暴力",
       "冒险"
     ],
     "isAnchor": false,
@@ -2150,14 +1667,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "动作",
-      "单人",
-      "血腥",
-      "架空历史",
-      "暴力",
-      "第一人称",
-      "二战"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2175,14 +1685,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "动作",
-      "血腥",
-      "黑暗",
-      "射击",
-      "单人",
-      "恐怖",
-      "合作"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2200,14 +1703,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "女性主角",
-      "色情内容",
-      "第一人称射击",
-      "独立",
-      "单人",
-      "射击",
-      "科幻"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2225,14 +1721,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "复古射击",
-      "第一人称射击",
-      "复古",
-      "射击",
-      "快节奏",
-      "老式",
-      "恐怖",
-      "第一人称"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2250,14 +1739,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作冒险",
-      "跑酷",
-      "第一人称",
-      "探索",
-      "3D 平台",
-      "女性主角",
-      "单人",
-      "平台游戏"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2275,14 +1758,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "复古射击",
-      "第一人称射击",
-      "复古",
-      "像素图形",
-      "鲜血",
-      "动作",
-      "老式",
-      "快节奏"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2300,14 +1776,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作冒险",
-      "第一人称",
-      "剧情丰富",
-      "解谜",
-      "单人",
-      "冒险",
-      "探索",
-      "历史"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2325,14 +1795,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "狙击手",
-      "单人",
-      "潜行",
-      "射击",
-      "多人",
-      "第一人称射击",
-      "军事"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2350,14 +1813,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "冒险",
-      "探索",
       "动作",
-      "动作冒险",
-      "多人",
-      "3D 平台",
-      "第一人称",
-      "街机"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2373,16 +1830,10 @@
     "cover": "/covers/细胞奇点进化永无止境.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "点击游戏",
-      "免费开玩",
-      "模拟",
-      "科学",
-      "挂机游戏",
       "休闲",
-      "历史",
-      "单人"
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2398,16 +1849,10 @@
     "cover": "/covers/孤岛惊魂原始杀戮.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "生存",
       "动作",
-      "狩猎",
-      "冒险",
-      "第一人称",
-      "单人",
-      "开放世界生存制作"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2425,14 +1870,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "赛博朋克",
-      "开放世界",
-      "裸露",
-      "角色扮演",
-      "单人",
-      "剧情丰富",
-      "成人",
-      "科幻"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2450,14 +1888,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "狩猎",
-      "开放世界",
-      "多人",
-      "自然",
-      "放松",
-      "潜行",
-      "第一人称射击",
-      "模拟"
+      "冒险",
+      "模拟",
+      "体育"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2473,16 +1906,11 @@
     "cover": "/covers/theforest.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "开放世界生存制作",
-      "生存",
-      "恐怖",
-      "开放世界",
-      "制作",
+      "动作",
       "冒险",
-      "建造",
-      "生存恐怖"
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2500,14 +1928,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "动作角色扮演",
-      "角色扮演",
-      "探索",
-      "第一人称射击",
-      "冒险",
-      "单人",
-      "剧情丰富"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2525,14 +1946,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "角色扮演",
-      "后末日",
-      "单人",
-      "可模组化",
-      "剧情丰富",
-      "探索",
-      "第一人称"
+      "动作",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2550,14 +1965,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "第一人称射击",
-      "后末日",
-      "生存",
-      "氛围",
-      "单人",
-      "射击",
-      "探索"
+      "动作",
+      "冒险",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2575,14 +1985,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "科幻",
-      "沉浸式模拟",
-      "太空",
-      "单人",
-      "恐怖",
-      "氛围",
-      "第一人称射击",
-      "第一人称"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2600,14 +2004,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "潜行",
       "动作",
-      "第一人称",
-      "冒险",
-      "单人",
-      "黑暗",
-      "重启",
-      "蒸汽朋克"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2625,14 +2023,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "赛博朋克",
-      "潜行",
-      "角色扮演",
-      "科幻",
-      "第一人称射击",
       "动作",
-      "单人",
-      "剧情丰富"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2650,14 +2042,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "动作",
-      "潜行",
-      "沉浸式模拟",
-      "第一人称",
-      "射击",
-      "单人",
-      "多人"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2675,14 +2060,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "资本主义",
-      "超现实",
-      "沉浸式模拟",
-      "第一人称射击",
-      "心理恐怖",
-      "迷幻",
-      "射击",
-      "赛博朋克"
+      "动作",
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2725,14 +2104,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "第三人称射击",
-      "科幻",
-      "射击",
-      "多人",
-      "单人",
-      "氛围",
-      "开放世界"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2750,14 +2122,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "生存恐怖",
-      "恐怖",
-      "第一人称",
-      "单人",
-      "动作",
-      "色情内容",
-      "僵尸",
-      "血腥"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2776,13 +2141,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "恐怖",
-      "第三人称",
-      "剧情丰富",
-      "冒险",
-      "惊悚",
-      "氛围",
-      "单人"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2800,14 +2159,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "剧情丰富",
-      "后末日",
-      "僵尸",
-      "恐怖",
-      "动作冒险",
-      "射击",
-      "单人",
-      "第三人称射击"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2825,14 +2178,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "潜行",
       "动作",
-      "剧情丰富",
-      "电影式",
-      "冷战",
-      "重制",
-      "军事",
-      "单人"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2850,13 +2197,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "潜行",
       "动作",
-      "合作",
-      "第三人称",
-      "单人",
-      "多人",
-      "射击",
       "冒险"
     ],
     "isAnchor": false,
@@ -2875,14 +2216,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "第三人称射击",
-      "子弹时间",
-      "剧情丰富",
-      "多人",
-      "射击",
-      "电影式",
-      "第三人称"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2900,14 +2234,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "潜行",
-      "暗杀",
-      "虚拟现实",
       "动作",
-      "单人",
-      "沙盒",
-      "多人",
-      "暴力"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2925,14 +2253,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "单人",
-      "剧情丰富",
-      "超级英雄",
-      "动作冒险",
       "动作",
-      "第三人称射击",
-      "选择取向",
-      "科幻"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2950,14 +2272,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "狙击手",
       "动作",
-      "多人",
-      "射击",
-      "战争",
-      "潜行",
-      "合作",
-      "二战"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -2975,14 +2291,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "第三人称射击",
-      "科幻",
-      "单人",
-      "快节奏",
-      "射击",
-      "第三人称",
-      "子弹时间"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3000,14 +2309,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "剧情丰富",
-      "角色扮演",
-      "选择取向",
-      "科幻",
-      "单人",
-      "太空",
-      "角色自定义",
-      "第三人称射击"
+      "动作",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3025,14 +2328,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "冒险",
-      "剧情丰富",
-      "动作冒险",
-      "单人",
-      "多人",
-      "第三人称",
-      "解谜",
-      "第三人称射击"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3050,14 +2346,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "冒险",
       "动作",
-      "女性主角",
-      "单人",
-      "第三人称",
-      "开放世界",
-      "探索",
-      "动作冒险"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3075,14 +2365,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "独立",
-      "射击",
-      "跑酷",
-      "子弹时间",
-      "暴力",
-      "好评原声音轨",
-      "血腥"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3101,13 +2384,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "灵异",
-      "女性主角",
-      "剧情丰富",
-      "冒险",
-      "第三人称",
-      "氛围",
-      "单人"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3125,14 +2402,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "恐怖",
-      "生存恐怖",
-      "心理恐怖",
-      "血腥",
-      "氛围",
-      "单人",
-      "动作",
-      "第三人称"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3150,14 +2420,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "冒险",
-      "3D 平台",
-      "单人",
-      "动作冒险",
-      "第三人称",
-      "阖家",
       "动作",
-      "第三人称射击"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3175,14 +2439,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "心理恐怖",
-      "恐怖",
-      "生存恐怖",
-      "剧情丰富",
-      "氛围",
-      "心理",
-      "重制",
-      "好评原声音轨"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3200,14 +2458,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "剧情丰富",
-      "第三人称射击",
       "动作",
-      "心理",
-      "氛围",
-      "单人",
-      "战争",
-      "射击"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3225,14 +2477,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "机甲",
-      "角色自定义",
-      "动作",
-      "机器人",
-      "第三人称",
-      "战斗",
-      "快节奏",
-      "类魂系列"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3250,14 +2495,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "机甲",
-      "动作",
-      "角色自定义",
-      "机器人",
-      "动漫",
-      "科幻",
-      "单人",
-      "后末日"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3300,14 +2538,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "推理",
-      "犯罪",
-      "开放世界",
-      "黑色",
       "冒险",
-      "剧情丰富",
-      "悬疑",
-      "调查"
+      "策略"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3325,14 +2557,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "剧情丰富",
-      "西部",
-      "多人",
-      "冒险",
       "动作",
-      "拟真",
-      "单人"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3350,14 +2576,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作冒险",
-      "开放世界",
-      "女性主角",
-      "第三人称",
-      "后末日",
-      "机甲",
-      "剧情丰富",
-      "动作"
+      "动作",
+      "冒险",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3375,14 +2596,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "黑客",
-      "光明会",
-      "多人",
-      "跑酷",
       "动作",
-      "潜行",
-      "第三人称"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3400,13 +2615,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
       "动作",
-      "破坏",
-      "多人",
-      "第三人称射击",
-      "单人",
-      "射击",
       "冒险"
     ],
     "isAnchor": false,
@@ -3425,14 +2634,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "射击",
       "动作",
-      "血腥",
-      "鲜血",
-      "外星人",
-      "恐怖",
-      "俯视",
-      "单人"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3448,16 +2651,10 @@
     "cover": "/covers/最后的战役劫后余生.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "僵尸",
-      "生存",
-      "后末日",
-      "俯视射击",
-      "轻度 Rogue",
-      "射击",
-      "单人",
-      "动作类 Rogue"
+      "动作",
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3475,14 +2672,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "俯视射击",
-      "赛博朋克",
-      "角色扮演",
       "动作",
-      "合作",
-      "射击",
-      "开放世界",
-      "独立"
+      "冒险",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3500,14 +2692,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "赛博朋克",
-      "动作",
-      "俯视射击",
-      "好评原声音轨",
-      "暴力",
-      "独立",
-      "双摇杆射击",
-      "血腥"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3526,13 +2711,7 @@
     "playStatus": "cleared",
     "tags": [
       "休闲",
-      "模拟",
-      "放松",
-      "本地多人",
-      "沙盒",
-      "多人",
-      "在线合作",
-      "本地合作"
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3550,14 +2729,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "第一人称射击",
-      "3D 平台",
-      "跑酷",
-      "快节奏",
-      "平台游戏",
       "动作",
-      "射击",
-      "独立"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3575,14 +2748,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "快节奏",
-      "第一人称射击",
-      "复古射击",
-      "鲜血",
-      "角色动作",
-      "竞技场射击",
-      "华丽格斗",
-      "好评原声音轨"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3619,7 +2785,7 @@
     "cover": "/covers/carx漂移赛车.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "动作",
       "休闲",
@@ -3643,12 +2809,7 @@
     "playStatus": "cleared",
     "tags": [
       "竞速",
-      "汽车模拟",
       "模拟",
-      "多人",
-      "驾驶",
-      "虚拟现实",
-      "拟真",
       "体育"
     ],
     "isAnchor": false,
@@ -3667,14 +2828,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "竞速",
-      "驾驶",
-      "汽车模拟",
-      "模拟",
-      "虚拟现实",
-      "多人",
-      "拟真",
-      "体育"
+      "竞速"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3693,12 +2847,7 @@
     "playStatus": "cleared",
     "tags": [
       "竞速",
-      "汽车模拟",
       "模拟",
-      "多人",
-      "虚拟现实",
-      "驾驶",
-      "越野",
       "体育"
     ],
     "isAnchor": false,
@@ -3717,14 +2866,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "足球",
-      "体育",
-      "多人",
       "模拟",
-      "单人",
-      "控制器",
-      "竞技",
-      "本地合作"
+      "体育"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3741,13 +2884,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "竞速",
-      "多人",
-      "派对游戏",
-      "休闲",
-      "本地合作"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -3786,13 +2923,8 @@
     "playStatus": "cleared",
     "tags": [
       "竞速",
-      "摩托车",
-      "体育",
-      "多人",
-      "开放世界",
-      "第一人称",
       "模拟",
-      "第三人称"
+      "体育"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3808,16 +2940,11 @@
     "cover": "/covers/火箭联盟.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "多人",
-      "足球",
-      "竞技",
-      "体育",
+      "动作",
       "竞速",
-      "团队导向",
-      "在线合作",
-      "美式橄榄球"
+      "体育"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3835,14 +2962,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "模拟",
-      "飞行",
-      "拟真",
-      "虚拟现实",
-      "多人",
-      "爱好模拟",
-      "单人",
-      "氛围"
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3860,14 +2980,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "竞速",
-      "本地多人",
-      "街机",
-      "多人",
-      "分屏",
-      "好评原声音轨",
-      "阖家",
-      "动作"
+      "竞速"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3883,16 +2996,9 @@
     "cover": "/covers/欧洲卡车模拟2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "驾驶",
-      "交通运输",
-      "模拟",
-      "开放世界",
-      "汽车模拟",
-      "拟真",
-      "可模组化",
-      "放松"
+      "模拟"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3936,13 +3042,7 @@
     "playStatus": "cleared",
     "tags": [
       "竞速",
-      "驾驶",
-      "控制器",
-      "单人",
-      "3D",
-      "汽车模拟",
-      "角色扮演",
-      "街机"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3958,16 +3058,10 @@
     "cover": "/covers/闪电十一人英雄们的胜利之路.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "体育",
-      "足球",
       "角色扮演",
-      "动漫",
-      "玩家对战",
-      "收集马拉松",
-      "竞技",
-      "角色自定义"
+      "体育"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -3983,16 +3077,10 @@
     "cover": "/covers/bing_wwe2k26.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "模拟",
-      "体育",
-      "3D 格斗",
-      "摔角",
-      "沙盒",
-      "多人",
-      "角色自定义",
-      "格斗"
+      "体育"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4008,14 +3096,8 @@
     "cover": "/covers/bing_fifa23.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
-    "tags": [
-      "足球",
-      "体育",
-      "模拟",
-      "多人",
-      "竞技"
-    ],
+    "playStatus": "cleared",
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -4030,16 +3112,9 @@
     "cover": "/covers/bing_nba2k26.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "赌博",
-      "体育",
-      "篮球",
-      "模拟",
-      "电竞",
-      "3D",
-      "多人",
-      "控制器"
+      "体育"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4057,13 +3132,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "体育",
       "模拟",
-      "策略",
-      "足球",
-      "管理",
-      "多人",
-      "单人"
+      "体育",
+      "策略"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4079,16 +3150,10 @@
     "cover": "/covers/极限国度.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "竞速",
-      "开放世界",
-      "体育",
       "大型多人在线",
-      "多人",
-      "自行车",
-      "单板滑雪",
-      "玩家对战"
+      "体育"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4106,14 +3171,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "体育",
-      "开放世界",
-      "多人",
       "动作",
-      "模拟",
-      "氛围",
-      "探索",
-      "单板滑雪"
+      "体育"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4171,16 +3230,11 @@
     "cover": "/covers/崩溃大陆.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "开放世界生存制作",
-      "开放世界",
-      "角色扮演",
-      "生存",
-      "探索",
-      "单人",
-      "制作",
-      "沙盒"
+      "动作",
+      "冒险",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4198,14 +3252,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
+      "动作",
       "冒险",
-      "多人",
-      "沙盒",
-      "角色扮演",
-      "建造",
-      "制作",
-      "生存",
-      "合作"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4221,16 +3270,11 @@
     "cover": "/covers/幻兽帕鲁.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "生存",
-      "生物收集",
-      "多人",
-      "开放世界生存制作",
-      "在线合作",
-      "制作",
-      "玩家对战"
+      "动作",
+      "冒险",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4248,9 +3292,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作RPG",
-      "格斗",
-      "多人",
       "Mobile"
     ],
     "isAnchor": false,
@@ -4269,9 +3310,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "都市奇幻",
-      "角色扮演",
       "Mobile"
     ],
     "isAnchor": false,
@@ -4288,11 +3326,8 @@
     "cover": "/covers/bing_战双帕弥什.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "动作",
-      "科幻",
-      "角色扮演",
       "Mobile"
     ],
     "isAnchor": false,
@@ -4311,9 +3346,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "角色扮演",
-      "科幻",
       "Mobile"
     ],
     "isAnchor": false,
@@ -4332,9 +3364,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作RPG",
-      "奇幻",
-      "多人",
       "Mobile"
     ],
     "isAnchor": false,
@@ -4353,9 +3382,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "格斗",
-      "动作",
-      "多人",
       "Mobile"
     ],
     "isAnchor": false,
@@ -4372,16 +3398,9 @@
     "cover": "/covers/机动战士高达激战任务.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "免费开玩",
-      "机器人",
-      "机甲",
-      "玩家对战",
-      "第三人称射击",
-      "团队导向",
-      "射击",
-      "多人"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4400,12 +3419,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "单人",
-      "剧情丰富",
       "冒险",
-      "神话",
-      "战斗",
-      "第三人称",
       "角色扮演"
     ],
     "isAnchor": false,
@@ -4424,14 +3438,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "超级英雄",
       "动作",
-      "单人",
-      "剧情丰富",
       "冒险",
-      "战斗",
-      "动作冒险"
+      "休闲"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4450,13 +3459,8 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "砍杀",
       "冒险",
-      "角色扮演",
-      "开放世界",
-      "单人",
-      "第三人称",
-      "奇幻"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4475,13 +3479,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "女性主角",
-      "砍杀",
-      "色情内容",
-      "裸露",
-      "单人",
-      "华丽格斗",
-      "好评原声音轨"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4498,13 +3496,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "动作",
-      "砍杀",
-      "科幻",
-      "单人",
-      "快节奏"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -4521,14 +3513,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "节奏",
-      "动作",
-      "砍杀",
-      "好评原声音轨",
-      "单人",
-      "卡通风格",
-      "动作冒险",
-      "音乐"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4546,14 +3531,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "砍杀",
-      "角色动作",
-      "好评原声音轨",
-      "单人",
-      "华丽格斗",
-      "第三人称",
-      "风格化"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4571,12 +3549,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "砍杀",
-      "华丽格斗",
-      "无双",
-      "战争游戏",
-      "武术",
-      "动作角色扮演",
+      "动作",
       "角色扮演",
       "策略"
     ],
@@ -4595,13 +3568,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "动作",
-      "砍杀",
-      "无双",
-      "历史",
-      "日式"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -4618,14 +3585,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "砍杀",
-      "动作",
-      "快速反应事件",
-      "罗马",
-      "历史",
-      "第三人称",
-      "单人",
-      "血腥"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4643,14 +3603,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "动作冒险",
-      "动作角色扮演",
-      "单人",
-      "华丽格斗",
-      "剑术",
-      "黑暗奇幻",
-      "类魂系列"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4667,13 +3620,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "动作",
-      "砍杀",
-      "冒险",
-      "科幻",
-      "单人"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -4690,14 +3637,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "类银河战士恶魔城",
-      "探索",
-      "2D 平台",
       "动作",
-      "横向滚屏",
-      "精确平台",
-      "冒险",
-      "动作冒险"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4715,13 +3656,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "角色扮演",
-      "独立",
       "动作",
       "冒险",
-      "单人",
-      "类魂系列",
-      "抢先体验"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4739,13 +3676,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作冒险",
-      "心理恐怖",
-      "剧情丰富",
-      "女性主角",
-      "电影式",
-      "神话",
-      "黑暗",
+      "动作",
       "冒险"
     ],
     "isAnchor": false,
@@ -4764,14 +3695,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "武术",
-      "清版动作",
-      "困难",
-      "第三人称",
-      "单人",
-      "类魂系列",
-      "犯罪"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4789,14 +3713,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "单人",
-      "砍杀",
-      "第三人称",
-      "科幻",
-      "冒险",
-      "控制器",
-      "剧情丰富"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4814,14 +3731,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "动作",
-      "赛博朋克",
-      "快节奏",
-      "第一人称",
-      "困难",
-      "剑术",
-      "单人",
-      "砍杀"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4839,14 +3749,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
       "动作",
-      "角色扮演",
-      "单人",
-      "奇幻",
       "冒险",
-      "第三人称",
-      "暴力"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4864,14 +3769,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "赛博朋克",
       "动作",
-      "女性主角",
-      "科幻",
-      "第三人称",
-      "冒险",
-      "剧情丰富",
-      "单人"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4890,13 +3789,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "冒险",
-      "动作冒险",
-      "3D",
-      "暴力",
-      "血腥",
-      "单人",
-      "砍杀"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4914,14 +3807,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
-      "车辆作战",
-      "后末日",
       "动作",
-      "驾驶",
-      "单人",
-      "生存",
-      "第三人称"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4939,14 +3826,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "开放世界",
       "动作",
-      "剧情丰富",
-      "单人",
-      "冒险",
-      "潜行",
-      "战斗",
-      "忍者"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -4989,14 +3870,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "砍杀",
-      "角色扮演",
-      "好评原声音轨",
-      "剧情丰富",
-      "女性主角",
       "动作",
-      "华丽格斗",
-      "开放世界"
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -5014,14 +3889,9 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "女性主角",
       "动作",
-      "色情内容",
-      "类魂系列",
-      "砍杀",
-      "单人",
-      "第三人称",
-      "动作角色扮演"
+      "冒险",
+      "角色扮演"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -5040,13 +3910,7 @@
     "playStatus": "cleared",
     "tags": [
       "动作",
-      "开放世界",
-      "超级英雄",
-      "潜行",
-      "第三人称",
-      "单人",
-      "冒险",
-      "推理"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -5064,14 +3928,7 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "类魂系列",
-      "黑暗奇幻",
-      "角色扮演",
-      "困难",
-      "动作",
-      "黑暗",
-      "奇幻",
-      "氛围"
+      "动作"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -5164,14 +4021,8 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "类魂系列",
-      "困难",
       "动作",
-      "单人",
-      "忍者",
-      "潜行",
-      "冒险",
-      "第三人称"
+      "冒险"
     ],
     "isAnchor": false,
     "orderWeight": 0,
@@ -5212,7 +4063,7 @@
     "cover": "/covers/荣耀战魂.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "中世纪",
       "剑术",
@@ -5237,7 +4088,7 @@
     "cover": "/covers/铁拳8.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "格斗",
       "3D 格斗",
@@ -5262,7 +4113,7 @@
     "cover": "/covers/拳皇15.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "2D 格斗",
       "格斗",
@@ -5287,7 +4138,7 @@
     "cover": "/covers/街头霸王6.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "2D 格斗",
       "格斗",
@@ -5312,7 +4163,7 @@
     "cover": "/covers/罪恶装备奋战.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "格斗",
       "2D 格斗",
@@ -5412,7 +4263,7 @@
     "cover": "/covers/战意.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "剑术",
       "免费开玩",
@@ -5612,7 +4463,7 @@
     "cover": "/covers/哈迪斯.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "动作类 Rogue",
       "轻度 Rogue",
@@ -5783,21 +4634,12 @@
   {
     "id": "火炬之光无限",
     "title": "火炬之光：无限",
-    "appId": "1974050",
+    "appId": "2315040",
     "cover": "/covers/火炬之光无限.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
-    "tags": [
-      "角色扮演",
-      "砍杀",
-      "刷宝",
-      "动作角色扮演",
-      "多人",
-      "动作",
-      "冒险",
-      "免费开玩"
-    ],
+    "playStatus": "cleared",
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -5812,7 +4654,7 @@
     "cover": "/covers/绝地悍将.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "动作类 Rogue",
       "探索",
@@ -6112,7 +4954,7 @@
     "cover": "/covers/勇者斗恶龙创世小玩家2破坏神席德与空荡岛.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "角色扮演",
       "开放世界生存制作",
@@ -6263,13 +5105,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "角色扮演",
-      "回合制",
-      "收集",
-      "冒险",
-      "多人"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -6311,9 +5147,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "跑酷",
-      "休闲",
-      "动作",
       "Mobile"
     ],
     "isAnchor": false,
@@ -6332,9 +5165,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "休闲",
-      "解谜",
-      "模拟",
       "Mobile"
     ],
     "isAnchor": false,
@@ -6352,13 +5182,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "3D 平台",
-      "冒险",
-      "开放世界",
-      "单人",
-      "收集"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -6469,21 +5293,12 @@
   {
     "id": "脑航员2",
     "title": "脑航员2",
-    "appId": "607080",
-    "cover": "/covers/脑航员2.jpg",
+    "appId": "900012122",
+    "cover": "/covers/bing_脑航员2.jpg",
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "3D 平台",
-      "剧情丰富",
-      "单人",
-      "心理",
-      "喜剧",
-      "冒险",
-      "欢乐",
-      "迷幻"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -6624,13 +5439,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "动作",
-      "冒险",
-      "开放世界",
-      "Boss战",
-      "单人"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -6671,13 +5480,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "动作",
-      "生存",
-      "冒险",
-      "后末日",
-      "单人"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -6868,7 +5671,7 @@
     "cover": "/covers/死亡细胞.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "冒险",
       "动作类 Rogue",
@@ -6944,13 +5747,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "类银河战士",
-      "科幻",
-      "探索",
-      "动作",
-      "平台游戏"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -7040,14 +5837,8 @@
     "cover": "/covers/bing_星际争霸ii.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
-    "tags": [
-      "即时战略",
-      "科幻",
-      "多人",
-      "电子竞技",
-      "策略"
-    ],
+    "playStatus": "cleared",
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -7063,13 +5854,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "即时战略",
-      "奇幻",
-      "多人",
-      "策略",
-      "经典"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -7159,7 +5944,7 @@
     "cover": "/covers/要塞十字军东征决定版.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "策略",
       "城市营造",
@@ -7209,7 +5994,7 @@
     "cover": "/covers/沙丘觉醒.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "开放世界生存制作",
       "生存",
@@ -7334,7 +6119,7 @@
     "cover": "/covers/亿万僵尸.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "基地建设",
       "殖民模拟",
@@ -7359,7 +6144,7 @@
     "cover": "/covers/要战便战.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "资源管理",
       "中世纪",
@@ -7384,7 +6169,7 @@
     "cover": "/covers/蚂蚁帝国.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "战争游戏",
       "记叙",
@@ -7434,7 +6219,7 @@
     "cover": "/covers/战锤40k战争黎明3.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "战锤 40K",
       "策略",
@@ -7585,13 +6370,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "策略",
-      "冒险",
-      "实时战略",
-      "可爱",
-      "探索"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -7731,7 +6510,7 @@
     "cover": "/covers/蚁托邦.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "殖民模拟",
       "自动化",
@@ -7758,9 +6537,6 @@
     "showPlaytime": false,
     "playStatus": "playing",
     "tags": [
-      "MOBA",
-      "多人",
-      "竞技",
       "Mobile"
     ],
     "isAnchor": false,
@@ -7777,11 +6553,8 @@
     "cover": "/covers/bing_宝可梦大集结.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "MOBA",
-      "多人",
-      "策略",
       "Mobile"
     ],
     "isAnchor": false,
@@ -7798,11 +6571,8 @@
     "cover": "/covers/bing_王者荣耀.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "MOBA",
-      "多人",
-      "竞技",
       "Mobile"
     ],
     "isAnchor": false,
@@ -7819,11 +6589,8 @@
     "cover": "/covers/bing_非人学园.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
-      "MOBA",
-      "多人",
-      "动作",
       "Mobile"
     ],
     "isAnchor": false,
@@ -7840,14 +6607,8 @@
     "cover": "/covers/bing_风暴英雄.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
-    "tags": [
-      "MOBA",
-      "多人",
-      "团队合作",
-      "免费开玩",
-      "策略"
-    ],
+    "playStatus": "cleared",
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -7862,7 +6623,7 @@
     "cover": "/covers/刀塔2.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "免费开玩",
       "多人在线战术竞技",
@@ -7887,7 +6648,7 @@
     "cover": "/covers/永恒轮回.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "免费开玩",
       "多人在线战术竞技",
@@ -7914,9 +6675,6 @@
     "showPlaytime": false,
     "playStatus": "cleared",
     "tags": [
-      "策略",
-      "角色扮演",
-      "战术",
       "Mobile"
     ],
     "isAnchor": false,
@@ -7934,13 +6692,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "战棋",
-      "策略角色扮演",
-      "回合制",
-      "日式RPG",
-      "多人"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -7981,13 +6733,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "战棋",
-      "策略角色扮演",
-      "回合制",
-      "剧情丰富",
-      "角色扮演"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -8052,7 +6798,7 @@
     "cover": "/covers/陷阵之志.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "策略",
       "回合战略",
@@ -8152,7 +6898,7 @@
     "cover": "/covers/命运之手.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "牌组构建式类 Rogue",
       "类 Rogue",
@@ -8177,7 +6923,7 @@
     "cover": "/covers/以撒的结合重生.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "动作类 Rogue",
       "类 Rogue",
@@ -8203,13 +6949,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "动作",
-      "射击",
-      "复古",
-      "2D",
-      "街机"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -8224,7 +6964,7 @@
     "cover": "/covers/循环英雄.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "战术",
       "类 Rogue",
@@ -8249,7 +6989,7 @@
     "cover": "/covers/背包乱斗福西法的宝藏.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "自走棋",
       "库存管理",
@@ -8274,7 +7014,7 @@
     "cover": "/covers/暗黑地牢.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "回合制战斗",
       "迷宫探索",
@@ -8299,7 +7039,7 @@
     "cover": "/covers/土豆兄弟.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "类 Rogue",
       "单人",
@@ -8324,7 +7064,7 @@
     "cover": "/covers/暖雪.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "动作类 Rogue",
       "轻度 Rogue",
@@ -8349,7 +7089,7 @@
     "cover": "/covers/吸血鬼幸存者.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "动作类 Rogue",
       "弹幕射击",
@@ -8575,13 +7315,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "playing",
-    "tags": [
-      "卡牌",
-      "策略",
-      "回合制",
-      "免费开玩",
-      "多人"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -8597,13 +7331,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "playing",
-    "tags": [
-      "卡牌",
-      "策略",
-      "回合制",
-      "免费开玩",
-      "多人"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -8618,7 +7346,7 @@
     "cover": "/covers/邪恶冥刻.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "卡牌战斗",
       "卡牌游戏",
@@ -8668,7 +7396,7 @@
     "cover": "/covers/密教模拟器.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "卡牌游戏",
       "故事架构丰富",
@@ -8693,7 +7421,7 @@
     "cover": "/covers/月圆之夜.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "卡牌游戏",
       "免费开玩",
@@ -8743,7 +7471,7 @@
     "cover": "/covers/小丑牌.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "卡牌游戏",
       "类 Rogue",
@@ -8818,7 +7546,7 @@
     "cover": "/covers/再来一张.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "牌组构建式类 Rogue",
       "策略",
@@ -8843,7 +7571,7 @@
     "cover": "/covers/杀戮尖塔.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "牌组构建式类 Rogue",
       "卡牌游戏",
@@ -8893,7 +7621,7 @@
     "cover": "/covers/模拟人生4.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "生活模拟",
       "免费开玩",
@@ -8918,7 +7646,7 @@
     "cover": "/covers/开罗拉面店theramensensei.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "模拟",
       "策略",
@@ -8968,7 +7696,7 @@
     "cover": "/covers/边缘世界.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "殖民模拟",
       "基地建设",
@@ -8993,7 +7721,7 @@
     "cover": "/covers/波西亚时光.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "生活模拟",
       "角色扮演",
@@ -9018,7 +7746,7 @@
     "cover": "/covers/冰汽时代.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "城市营造",
       "生存",
@@ -9043,7 +7771,7 @@
     "cover": "/covers/戴森球计划.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "自动化",
       "基地建设",
@@ -9068,7 +7796,7 @@
     "cover": "/covers/bing_火星求生重制版.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "模拟",
       "策略",
@@ -9093,7 +7821,7 @@
     "cover": "/covers/异星工厂.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "自动化",
       "基地建设",
@@ -9118,7 +7846,7 @@
     "cover": "/covers/幸福工厂.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "基地建设",
       "自动化",
@@ -9293,7 +8021,7 @@
     "cover": "/covers/bing_牧场物语来吧风之繁华集市.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "生活模拟",
       "农场模拟",
@@ -9318,7 +8046,7 @@
     "cover": "/covers/星露谷物语.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "农场模拟",
       "像素图形",
@@ -9393,15 +8121,8 @@
     "cover": "/covers/bing_minecraft.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
-    "tags": [
-      "沙盒",
-      "生存",
-      "建造",
-      "开放世界",
-      "多人",
-      "创意"
-    ],
+    "playStatus": "cleared",
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -9437,21 +8158,12 @@
   {
     "id": "未转变者",
     "title": "未转变者",
-    "appId": "304930",
-    "cover": "/covers/未转变者.jpg",
+    "appId": "900191022",
+    "cover": "/covers/bing_未转变者.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
-    "tags": [
-      "免费开玩",
-      "生存",
-      "僵尸",
-      "多人",
-      "开放世界",
-      "合作",
-      "沙盒",
-      "制作"
-    ],
+    "playStatus": "cleared",
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -9466,7 +8178,7 @@
     "cover": "/covers/泰拉瑞亚.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "开放世界生存制作",
       "沙盒",
@@ -9491,7 +8203,7 @@
     "cover": "/covers/僵尸毁灭工程.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "生存",
       "僵尸",
@@ -9516,7 +8228,7 @@
     "cover": "/covers/英灵神殿.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "开放世界生存制作",
       "生存",
@@ -9541,7 +8253,7 @@
     "cover": "/covers/深海迷航.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "开放世界生存制作",
       "生存",
@@ -9641,7 +8353,7 @@
     "cover": "/covers/无人深空.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "开放世界",
       "太空",
@@ -9666,7 +8378,7 @@
     "cover": "/covers/精英危机四伏.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "太空模拟",
       "太空",
@@ -9716,7 +8428,7 @@
     "cover": "/covers/呼吸边缘.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "开放世界生存制作",
       "太空",
@@ -10091,7 +8803,7 @@
     "cover": "/covers/心跳文学部.jpg",
     "playtime": "",
     "showPlaytime": false,
-    "playStatus": "playing",
+    "playStatus": "cleared",
     "tags": [
       "心理恐怖",
       "视觉小说",
@@ -10442,13 +9154,7 @@
     "playtime": "",
     "showPlaytime": false,
     "playStatus": "cleared",
-    "tags": [
-      "解谜",
-      "冒险",
-      "推理",
-      "剧情丰富",
-      "休闲"
-    ],
+    "tags": [],
     "isAnchor": false,
     "orderWeight": 0,
     "reviewFile": null,
@@ -10566,13 +9272,8 @@
     "playStatus": "playing",
     "tags": [
       "动作",
-      "多人",
-      "合作",
-      "第一人称射击",
-      "在线合作",
-      "射击",
-      "团队导向",
-      "生存"
+      "免费开玩",
+      "多人"
     ],
     "isAnchor": false,
     "orderWeight": 0,
