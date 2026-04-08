@@ -24,6 +24,7 @@ export default function GameCard({ game }: GameCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [tooltipPos, setTooltipPos] = useState<'left' | 'right'>('right');
   const [isMobile, setIsMobile] = useState(false);
+  const [showMobileInfo, setShowMobileInfo] = useState(false);
   const [imgError, setImgError] = useState(false);
   
   // 3D Tilt 状态
@@ -38,6 +39,18 @@ export default function GameCard({ game }: GameCardProps) {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // 点击外部关闭移动端信息面板
+  useEffect(() => {
+    if (!showMobileInfo) return;
+    const handleClickOutside = (e: Event) => {
+      if (cardRef.current && !cardRef.current.contains(e.target as Node)) {
+        setShowMobileInfo(false);
+      }
+    };
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => document.removeEventListener('touchstart', handleClickOutside);
+  }, [showMobileInfo]);
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -61,15 +74,14 @@ export default function GameCard({ game }: GameCardProps) {
     }
   };
 
-  // 生成本地 SVG 占位图，使用 Steam 库的深灰色调
-  const fallbackImage = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%23212429'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%238f98a0'%3E${encodeURIComponent(game.title)}%3C/text%3E%3C/svg%3E`;
+  // 生成本地 SVG 占位图
+  const fallbackImage = `data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%23212429'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%238f98a0'%3E${encodeURIComponent(game.title.slice(0, 10))}%3C/text%3E%3C/svg%3E`;
   
-  // 注意：因为配置了 basePath，如果 cover 是绝对路径（以 / 开头），
-  // next/image 会自动处理它。但如果是 fallbackImage (data URI)，则不需要处理。
-  // 为生产环境的本地图片路径加上 basePath 前缀
-  const coverSrc = game.cover
-    ? (game.cover.startsWith('/') ? `${basePath}${game.cover}` : game.cover)
-    : fallbackImage;
+  const coverSrc = imgError
+    ? fallbackImage
+    : game.cover
+      ? (game.cover.startsWith('/') ? `${basePath}${game.cover}` : game.cover)
+      : fallbackImage;
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (isMobile || !cardRef.current) return;
@@ -111,6 +123,18 @@ export default function GameCard({ game }: GameCardProps) {
     setGlare({ x: 50, y: 50, opacity: 0 });
   };
 
+  // 移动端点击处理
+  const handleMobileClick = (e: React.MouseEvent) => {
+    if (!isMobile) return;
+    // 如果有 reviewFile，长按/第二次点击跳转；第一次点击展示信息
+    if (!showMobileInfo) {
+      e.preventDefault();
+      e.stopPropagation();
+      setShowMobileInfo(true);
+    }
+    // 如果已经展开信息，让 Link 正常跳转（有 reviewFile 时）
+  };
+
   const CardContent = (
     <div 
       ref={cardRef}
@@ -118,6 +142,7 @@ export default function GameCard({ game }: GameCardProps) {
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={handleMobileClick}
       style={{ perspective: '1000px' }}
     >
       {/* 封面图容器 */}
@@ -133,8 +158,10 @@ export default function GameCard({ game }: GameCardProps) {
           src={coverSrc}
           alt={game.title}
           fill
-          className="object-cover object-center" // 确保图片居中裁剪，填满容器
-          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
+          className="object-cover object-center"
+          sizes="(max-width: 768px) 25vw, (max-width: 1200px) 20vw, 14vw"
+          onError={() => setImgError(true)}
+          unoptimized={coverSrc.startsWith('data:') || coverSrc.startsWith('http')}
         />
         
         {/* 动态反光层 (仅桌面端) */}
@@ -150,24 +177,59 @@ export default function GameCard({ game }: GameCardProps) {
 
         {/* 极简置顶角标 */}
         {game.isAnchor && (
-          <div className="absolute top-2 right-2 text-xl drop-shadow-md z-10" style={{ transform: 'translateZ(20px)' }}>
+          <div className="absolute top-1 right-1 md:top-2 md:right-2 text-sm md:text-xl drop-shadow-md z-10" style={{ transform: 'translateZ(20px)' }}>
             🔥
           </div>
         )}
-
-        {/* 移动端专属：常驻底部信息条 */}
-        <div className="md:hidden absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#10141b] via-[#10141b]/80 to-transparent pt-6 pb-2 px-2 flex justify-between items-end">
-          <span className="text-xl drop-shadow-md">{getStatusIcon(game.playStatus)}</span>
-          {game.reviewFile && (
-            <div className="flex items-center gap-1 bg-[#66c0f4]/20 px-2 py-0.5 rounded border border-[#66c0f4]/30">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#66c0f4] shadow-[0_0_5px_#66c0f4]"></span>
-              <span className="text-[10px] text-[#66c0f4] font-bold">印象</span>
-            </div>
-          )}
-        </div>
       </div>
 
-      {/* 桌面端专属：Steam 风格侧边悬浮信息卡片 (带层次感 + 毛玻璃) */}
+      {/* ======================== */}
+      {/* 移动端：点击弹出信息面板 */}
+      {/* ======================== */}
+      {showMobileInfo && isMobile && (
+        <div className="absolute inset-0 z-50 bg-[#171a21]/70 backdrop-blur-[2px] flex flex-col justify-end">
+          <div className="p-2 space-y-1.5">
+            {/* 游戏名 */}
+            <h3 className="text-[10px] font-bold text-white leading-tight line-clamp-2">{game.title}</h3>
+            
+            {/* 状态 */}
+            <div className="flex items-center gap-1">
+              <span className="text-xs">{getStatusIcon(game.playStatus)}</span>
+              <span className="text-[10px] text-[#c7d5e0]">{getStatusText(game.playStatus)}</span>
+            </div>
+
+            {/* 标签（全部显示） */}
+            <div className="flex flex-wrap gap-0.5">
+              {[...game.tags].sort((a, b) => {
+                const getWeight = (t: string) => t === '实战项目' ? 2 : t === '小想法' ? 1 : 0;
+                return getWeight(b) - getWeight(a);
+              }).filter(t => t !== 'Mobile').map(tag => {
+                const isSpecial = tag === '实战项目' || tag === '小想法';
+                return (
+                  <span key={tag} className={`text-[8px] px-1 py-0.5 rounded border ${
+                    isSpecial
+                      ? 'bg-[#a4d007]/20 text-[#a4d007] border-[#a4d007]/50 font-bold'
+                      : 'bg-[#202d39] text-[#66c0f4] border-[#2a475e]/50'
+                  }`}>
+                    {tag}
+                  </span>
+                );
+              })}
+            </div>
+
+            {/* 有评测的提示 */}
+            {game.reviewFile && (
+              <div className="text-[9px] text-[#66c0f4] text-center pt-1 border-t border-[#2a475e]/50">
+                再次点击查看印象 →
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* ======================== */}
+      {/* 桌面端：Steam 风格侧边悬浮信息卡片 */}
+      {/* ======================== */}
       {isHovered && !isMobile && (
         <div 
           className={`absolute top-0 w-80 bg-[#171a21]/90 backdrop-blur-md border border-[#3d4450] shadow-2xl flex flex-col pointer-events-none
@@ -175,12 +237,12 @@ export default function GameCard({ game }: GameCardProps) {
           `}
           style={{ zIndex: 100 }}
         >
-          {/* Header 区：带微渐变 */}
+          {/* Header 区 */}
           <div className="bg-gradient-to-r from-[#202d39]/90 to-[#171a21]/90 p-3 border-b border-[#2a475e]">
             <h3 className="text-lg font-bold text-white leading-tight">{game.title}</h3>
           </div>
           
-          {/* Content 区：深色背景 */}
+          {/* Content 区 */}
           <div className="p-3 flex flex-col gap-3 bg-[#171a21]/50">
             {/* 状态块 */}
             <div className="flex items-center gap-3 bg-[#10141b]/80 p-2 rounded border border-[#2a475e]/50">
@@ -200,7 +262,6 @@ export default function GameCard({ game }: GameCardProps) {
             {/* Tags 块 */}
             <div className="flex flex-wrap gap-1.5 mt-1">
               {[...game.tags].sort((a, b) => {
-                // 优先级：实战项目 (2) > 小想法 (1) > 其他 (0)
                 const getWeight = (t: string) => t === '实战项目' ? 2 : t === '小想法' ? 1 : 0;
                 return getWeight(b) - getWeight(a);
               }).map(tag => {
@@ -221,7 +282,7 @@ export default function GameCard({ game }: GameCardProps) {
             </div>
           </div>
 
-          {/* Action 区：Steam 标志性蓝绿渐变 */}
+          {/* Action 区 */}
           {game.reviewFile && (
             <div className="bg-gradient-to-r from-[#47bfff]/20 to-[#1a44c2]/20 backdrop-blur-md p-2.5 text-center border-t border-[#2a475e]">
               <span className="text-sm text-[#66c0f4] font-bold tracking-wide drop-shadow-md">
