@@ -65,36 +65,27 @@ export default function FilterBar({ tagTiers, selectedTag, onSelectTag, searchQu
         <div className="px-3 py-2">
           {/* 收起状态：一行显示当前选中 + 展开按钮 */}
           {!isExpanded && (
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
+              <TagButton
+                tag="全部游戏"
+                isSelected={selectedTag === null && !searchQuery}
+                onClick={() => { handleTagClick(null); onSearch(''); }}
+                compact
+              />
+              {selectedTag && (
                 <TagButton
-                  tag="全部游戏"
-                  isSelected={selectedTag === null && !searchQuery}
-                  onClick={() => { handleTagClick(null); onSearch(''); }}
+                  tag={selectedTag}
+                  isSelected={true}
+                  onClick={() => handleTagClick(null)}
                   compact
                 />
-                {selectedTag && (
-                  <TagButton
-                    tag={selectedTag}
-                    isSelected={true}
-                    onClick={() => handleTagClick(null)}
-                    compact
-                  />
-                )}
-                <button
-                  onClick={() => setIsExpanded(true)}
-                  className="ml-auto px-3 py-1 text-xs text-[#66c0f4] border border-[#66c0f4]/40 rounded-sm bg-[#202d39] hover:bg-[#2a475e] transition-colors flex items-center gap-1"
-                >
-                  展开游戏类型 ▾
-                </button>
-              </div>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => onSearch(e.target.value)}
-                placeholder="🔍 搜索游戏..."
-                className="w-full px-3 py-1.5 text-xs bg-[#202d39] border border-[#3d4450]/50 rounded-sm text-white placeholder-[#8f98a0] outline-none focus:border-[#66c0f4]"
-              />
+              )}
+              <button
+                onClick={() => setIsExpanded(true)}
+                className="ml-auto px-3 py-1 text-xs text-[#66c0f4] border border-[#66c0f4]/40 rounded-sm bg-[#202d39] hover:bg-[#2a475e] transition-colors flex items-center gap-1"
+              >
+                展开游戏类型 ▾
+              </button>
             </div>
           )}
 
@@ -155,32 +146,13 @@ export default function FilterBar({ tagTiers, selectedTag, onSelectTag, searchQu
                 {label}
               </span>
               {tierIdx === 0 && (
-                <>
-                  <TagButton
-                    tag="全部游戏"
-                    isSelected={selectedTag === null && !searchQuery}
-                    onClick={() => { onSelectTag(null); onSearch(''); }}
-                  />
-                  <div className="ml-auto">
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => onSearch(e.target.value)}
-                      placeholder="🔍 搜索游戏名称..."
-                      className="px-3 py-1.5 text-sm bg-[#202d39] border border-[#3d4450]/50 rounded-sm text-white placeholder-[#8f98a0] outline-none focus:border-[#66c0f4] w-48"
-                    />
-                  </div>
-                </>
-              )}
-              {tierIdx !== 0 && tags.map(tag => (
                 <TagButton
-                  key={tag}
-                  tag={tag}
-                  isSelected={selectedTag === tag}
-                  onClick={() => onSelectTag(tag)}
+                  tag="全部游戏"
+                  isSelected={selectedTag === null && !searchQuery}
+                  onClick={() => { onSelectTag(null); onSearch(''); }}
                 />
-              ))}
-              {tierIdx === 0 && tags.map(tag => (
+              )}
+              {tags.map(tag => (
                 <TagButton
                   key={tag}
                   tag={tag}

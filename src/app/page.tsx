@@ -160,19 +160,64 @@ export default function Home() {
       }
     });
 
-    // 排序逻辑
-    const sortFn = (a: any, b: any) => {
-      const aIsNative = a.cover && !a.cover.includes('bing');
-      const bIsNative = b.cover && !b.cover.includes('bing');
-      if (aIsNative && !bIsNative) return -1;
-      if (!aIsNative && bIsNative) return 1;
-      return b.orderWeight - a.orderWeight;
+    // 复合标签排序：同时考虑 Genre + Sub-Genre 生成排序码
+    const genreGroupSort = (games: typeof result) => {
+      if (games.length <= 1) return games;
+      
+      // 获取游戏匹配的所有核心标签
+      const getMatchedTags = (g: any) => {
+        const matched = new Set<string>();
+        (g.tags || []).forEach((t: string) => {
+          if (CORE_TAGS.includes(t)) matched.add(t);
+          const m = TAG_MAPPING[t];
+          if (m && CORE_TAGS.includes(m)) matched.add(m);
+        });
+        return matched;
+      };
+      
+      // 生成复合排序码：Sub-Genre编号(2位) + Genre编号(2位) + Mode编号(2位)
+      // 这样 Sub-Genre 相同的游戏一定相邻，Genre 作为次要排序
+      const getSortKey = (g: any): string => {
+        const matched = getMatchedTags(g);
+        
+        // 找到最具体的 Sub-Genre（第一个匹配的）
+        let subIdx = 99;
+        for (let i = 0; i < TAG_TIERS.sub.length; i++) {
+          if (matched.has(TAG_TIERS.sub[i])) { subIdx = i; break; }
+        }
+        
+        // 找到 Genre（第一个匹配的）
+        let genreIdx = 99;
+        for (let i = 0; i < TAG_TIERS.core.length; i++) {
+          if (matched.has(TAG_TIERS.core[i])) { genreIdx = i; break; }
+        }
+        
+        // 找到 Mode（第一个匹配的）
+        let modeIdx = 99;
+        for (let i = 0; i < TAG_TIERS.mode.length; i++) {
+          if (matched.has(TAG_TIERS.mode[i])) { modeIdx = i; break; }
+        }
+        
+        // 有 Sub-Genre 的游戏按 Sub 排；没有的按 Genre 排但排在后面
+        // 格式：有sub=[0][subIdx][genreIdx] 无sub=[1][genreIdx][modeIdx]
+        if (subIdx < 99) {
+          return `0_${String(subIdx).padStart(2,'0')}_${String(genreIdx).padStart(2,'0')}`;
+        }
+        return `1_${String(genreIdx).padStart(2,'0')}_${String(modeIdx).padStart(2,'0')}`;
+      };
+      
+      return [...games].sort((a, b) => {
+        const ka = getSortKey(a);
+        const kb = getSortKey(b);
+        if (ka !== kb) return ka.localeCompare(kb);
+        return b.orderWeight - a.orderWeight;
+      });
     };
 
     return {
-      anchorGames: anchors.sort((a, b) => b.orderWeight - a.orderWeight), // 研发项目按权重排
-      mobileGames: mobiles.sort(sortFn),
-      normalGames: normals.sort(sortFn)
+      anchorGames: anchors.sort((a, b) => b.orderWeight - a.orderWeight),
+      mobileGames: genreGroupSort(mobiles),
+      normalGames: genreGroupSort(normals)
     };
   }, [selectedTag, searchQuery]);
 
@@ -180,14 +225,33 @@ export default function Home() {
     <main className="min-h-screen flex flex-col">
       {/* 极简头部 */}
       <div className="pt-16 pb-8 px-4 md:px-8 max-w-7xl mx-auto w-full">
-        <div className="inline-block">
-          <h1 className="text-4xl md:text-5xl font-light text-white tracking-wider uppercase drop-shadow-lg">
-            My Game List
-          </h1>
-          <div className="h-1 w-full bg-gradient-to-r from-[#66c0f4] to-transparent mt-2 mb-1"></div>
-          <p className="text-[#8f98a0] text-sm tracking-[0.2em] uppercase">
-            Design Inspiration By Steam
-          </p>
+        <div className="flex items-end justify-between gap-4 flex-wrap">
+          <div className="inline-block">
+            <h1 className="text-4xl md:text-5xl font-light text-white tracking-wider uppercase drop-shadow-lg">
+              My Game List
+            </h1>
+            <div className="h-1 w-full bg-gradient-to-r from-[#66c0f4] to-transparent mt-2 mb-1"></div>
+            <p className="text-[#8f98a0] text-sm tracking-[0.2em] uppercase">
+              Design Inspiration By Steam
+            </p>
+          </div>
+          <div className="relative mb-1">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => handleSearch(e.target.value)}
+              placeholder="🔍 搜索游戏..."
+              className="px-4 py-2 text-sm bg-[#202d39] border border-[#3d4450]/50 rounded text-white placeholder-[#8f98a0] outline-none focus:border-[#66c0f4] w-56 md:w-64 transition-colors"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => handleSearch('')}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-[#8f98a0] hover:text-white text-sm"
+              >
+                ✕
+              </button>
+            )}
+          </div>
         </div>
       </div>
       
