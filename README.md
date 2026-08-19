@@ -1,4 +1,4 @@
-# 🎮 Shan's Game List
+# 🎮 My Game List
 
 个人游戏库展示网站 + 本地管理工具
 
