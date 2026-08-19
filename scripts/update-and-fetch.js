@@ -3,6 +3,7 @@ const path = require('path');
 const xlsx = require('xlsx');
 const axios = require('axios');
 const cheerio = require('cheerio');
+const { generateId, parseBool, parseNullableString } = require('./lib/utils');
 
 const STANDARD_EXCEL_PATH = path.join(__dirname, '../data/Standard_Game_List.xlsx');
 const JSON_PATH = path.join(__dirname, '../data/games.json');
@@ -16,26 +17,25 @@ if (!fs.existsSync(COVERS_DIR)) {
 function updateJsonRealtime(gamesArray) {
   const jsonGames = gamesArray.map(row => {
     if (!row.title) return null;
-    const isShowRaw = row.isShow;
-    const isShow = isShowRaw === undefined ? true : (isShowRaw === true || isShowRaw === 'TRUE' || isShowRaw === 'true' || isShowRaw === 1);
-    if (!isShow) return null;
+    if (!parseBool(row.isShow, true)) return null;
 
-    const id = row.title.toString().replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '').toLowerCase() || `game-${Date.now()}`;
+    const id = generateId(row.title);
 
     return {
       id: id,
       title: row.title.toString().trim(),
-      appId: row.appId ? row.appId.toString().trim() : null,
+      appId: parseNullableString(row.appId),
       cover: row.cover || `/covers/${id}.jpg`,
       playtime: row.playtime ? row.playtime.toString().trim() : '',
-      showPlaytime: row.showPlaytime === true || row.showPlaytime === 'TRUE' || row.showPlaytime === 'true' || row.showPlaytime === 1,
+      showPlaytime: parseBool(row.showPlaytime),
       playStatus: row.playStatus ? row.playStatus.toString().trim() : 'cleared',
       tags: row.tags ? row.tags.toString().split(',').map(t => t.trim()).filter(t => t) : [],
-      isAnchor: row.isAnchor === true || row.isAnchor === 'TRUE' || row.isAnchor === 'true' || row.isAnchor === 1,
+      isAnchor: parseBool(row.isAnchor),
       orderWeight: parseInt(row.orderWeight) || 0,
-      reviewFile: row.reviewFile ? row.reviewFile.toString().trim() : null,
-      pros: row.pros ? row.pros.toString().trim() : null,
-      cons: row.cons ? row.cons.toString().trim() : null
+      reviewFile: parseNullableString(row.reviewFile),
+      pros: parseNullableString(row.pros),
+      cons: parseNullableString(row.cons),
+      remark: parseNullableString(row.remark)
     };
   }).filter(game => game !== null);
 
@@ -222,7 +222,7 @@ async function main() {
     // 并发执行当前批次
     await Promise.all(batch.map(async (game) => {
       const title = game.title.toString().trim();
-      const id = title.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '').toLowerCase() || `game-${Date.now()}-${Math.floor(Math.random()*1000)}`;
+      const id = generateId(title);
       
       let appId = game.appId ? game.appId.toString().trim() : null;
       let coverPath = null;

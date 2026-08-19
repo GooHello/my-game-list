@@ -260,6 +260,19 @@
     let sortField = '';
     let sortDir = 1;
 
+    // HTML 转义：所有外部数据（Steam 抓取的标题/标签等）渲染前必须转义，防 XSS
+    function escapeHtml(s) {
+      return String(s ?? '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    // 统一 API 请求封装：自动携带启动时注入的管理令牌
+    function apiFetch(url, opts = {}) {
+      opts.headers = Object.assign({}, opts.headers, { 'x-admin-key': window.__ADMIN_TOKEN__ });
+      return fetch(url, opts);
+    }
+
     // 初始化
     window.addEventListener('DOMContentLoaded', () => {
       loadGames();
@@ -277,14 +290,14 @@
 
     // 加载统计
     async function loadStats() {
-      const r = await fetch('/api/stats');
+      const r = await apiFetch('/api/stats');
       const s = await r.json();
       const bar = document.getElementById('statsBar');
       const statusMap = { cleared: '已通关', playing: '游玩中', completed: '全成就', 'on-hold': '搁置', dropped: '放弃' };
       bar.innerHTML = `
         <div class="stat-item"><div class="num">${s.total}</div><div class="label">总游戏</div></div>
         ${Object.entries(s.statusCount).map(([k, v]) => `
-          <div class="stat-item"><div class="num">${v}</div><div class="label">${statusMap[k] || k}</div></div>
+          <div class="stat-item"><div class="num">${v}</div><div class="label">${escapeHtml(statusMap[k] || k)}</div></div>
         `).join('')}
         <div class="stat-item"><div class="num">${s.anchors}</div><div class="label">参与研发</div></div>
         <div class="stat-item"><div class="num">${s.reviews}</div><div class="label">有印象</div></div>
@@ -294,7 +307,7 @@
 
     // 加载游戏列表
     async function loadGames() {
-      const r = await fetch('/api/games');
+      const r = await apiFetch('/api/games');
       allGames = await r.json();
       filterGames();
       loadStats();
@@ -309,7 +322,7 @@
       let filtered = allGames.filter(g => {
         if (search && !g.title.toLowerCase().includes(search) && !(g.tags || []).some(t => t.toLowerCase().includes(search))) return false;
         if (status && g.playStatus !== status) return false;
-        if (coverFilter === 'missing' && g.cover && !g.cover.includes('bing_')) return false;
+        if (coverFilter === 'missing' && g.cover) return false;
         if (coverFilter === 'bing' && (!g.cover || !g.cover.includes('bing_'))) return false;
         return true;
       });
@@ -338,22 +351,23 @@
       const statusMap = { cleared: '已通关', completed: '全成就', playing: '游玩中', 'on-hold': '搁置', dropped: '放弃' };
       
       tbody.innerHTML = games.map(g => {
-        const coverUrl = g.cover ? (g.cover.startsWith('/') ? g.cover : g.cover) : '';
+        const coverUrl = g.cover || '';
+        const escId = escapeHtml(g.id);
         const tags = (g.tags || []).slice(0, 5).map(t => {
           const cls = (t === '实战项目' || t === '小想法') ? 'tag-chip special' : 'tag-chip';
-          return `<span class="${cls}">${t}</span>`;
+          return `<span class="${cls}">${escapeHtml(t)}</span>`;
         }).join('');
         const moreTag = (g.tags || []).length > 5 ? `<span class="tag-chip">+${g.tags.length - 5}</span>` : '';
 
-        return `<tr ondblclick="openEditModal('${g.id.replace(/'/g, "\\'")}')">
-          <td>${coverUrl ? `<img class="game-cover-thumb" src="${coverUrl}" onerror="this.style.display='none'">` : '<div style="width:40px;height:53px;background:#212429;border-radius:3px"></div>'}</td>
-          <td><div class="game-title">${g.isAnchor ? '🔥 ' : ''}${g.title}</div></td>
-          <td><span class="status-badge status-${g.playStatus}">${statusMap[g.playStatus] || g.playStatus || '-'}</span></td>
+        return `<tr ondblclick="openEditModal('${escId}')">
+          <td>${coverUrl ? `<img class="game-cover-thumb" src="${escapeHtml(coverUrl)}" onerror="this.style.display='none'">` : '<div style="width:40px;height:53px;background:#212429;border-radius:3px"></div>'}</td>
+          <td><div class="game-title">${g.isAnchor ? '🔥 ' : ''}${escapeHtml(g.title)}</div></td>
+          <td><span class="status-badge status-${escapeHtml(g.playStatus)}">${escapeHtml(statusMap[g.playStatus] || g.playStatus || '-')}</span></td>
           <td>${tags}${moreTag}</td>
-          <td style="color:var(--text-dim);font-size:12px">${g.appId || '-'}</td>
+          <td style="color:var(--text-dim);font-size:12px">${escapeHtml(g.appId || '-')}</td>
           <td style="font-size:12px;color:var(--text-dim)">${g.cover ? '✅' : '❌'}</td>
           <td>
-            <button class="btn btn-ghost btn-sm" onclick="openEditModal('${g.id.replace(/'/g, "\\'")}')">✏️ 编辑</button>
+            <button class="btn btn-ghost btn-sm" onclick="openEditModal('${escId}')">✏️ 编辑</button>
           </td>
         </tr>`;
       }).join('');
@@ -432,9 +446,9 @@
       try {
         let r;
         if (id) {
-          r = await fetch(`/api/games/${encodeURIComponent(id)}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+          r = await apiFetch(`/api/games/${encodeURIComponent(id)}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
         } else {
-          r = await fetch('/api/games', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+          r = await apiFetch('/api/games', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
         }
         const result = await r.json();
         if (result.success) {
@@ -456,7 +470,7 @@
       if (!confirm(`确定删除「${title}」？此操作不可撤销！`)) return;
 
       try {
-        const r = await fetch(`/api/games/${encodeURIComponent(id)}`, { method: 'DELETE' });
+        const r = await apiFetch(`/api/games/${encodeURIComponent(id)}`, { method: 'DELETE' });
         const result = await r.json();
         if (result.success) {
           toast('已删除: ' + title);
@@ -480,7 +494,7 @@
       fd.append('cover', file);
       
       try {
-        const r = await fetch(`/api/covers/${encodeURIComponent(id)}`, { method: 'POST', body: fd });
+        const r = await apiFetch(`/api/covers/${encodeURIComponent(id)}`, { method: 'POST', body: fd });
         const result = await r.json();
         if (result.success) {
           document.getElementById('editCoverPreview').src = result.cover + '?t=' + Date.now();
@@ -505,7 +519,7 @@
       // 1. 抓取封面
       if (id) {
         try {
-          const r = await fetch(`/api/covers/${encodeURIComponent(id)}/steam`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ appId }) });
+          const r = await apiFetch(`/api/covers/${encodeURIComponent(id)}/steam`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ appId }) });
           const result = await r.json();
           if (result.success) {
             document.getElementById('editCoverPreview').src = result.cover + '?t=' + Date.now();
@@ -523,7 +537,7 @@
 
       // 2. 抓取标签 + 名称
       try {
-        const r = await fetch(`/api/tags/steam/${appId}`, { method: 'POST' });
+        const r = await apiFetch(`/api/tags/steam/${appId}`, { method: 'POST' });
         const result = await r.json();
         if (result.tags && result.tags.length > 0) {
           const existing = document.getElementById('editTags').value;
@@ -549,58 +563,10 @@
       setTimeout(() => { status.innerHTML = ''; }, 5000);
     }
 
-    // Steam 封面抓取（单独）
-    async function fetchSteamCover() {
-      const id = document.getElementById('editId').value;
-      const appId = document.getElementById('steamAppIdInput').value.trim();
-      if (!id) return toast('请先保存游戏', 'error');
-      if (!appId) return toast('请输入Steam AppID', 'error');
-
-      toast('正在从Steam下载封面...');
-      try {
-        const r = await fetch(`/api/covers/${encodeURIComponent(id)}/steam`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ appId }) });
-        const result = await r.json();
-        if (result.success) {
-          document.getElementById('editCoverPreview').src = result.cover + '?t=' + Date.now();
-          document.getElementById('editCoverPreview').style.display = 'block';
-          document.getElementById('editAppId').value = appId;
-          toast('Steam封面下载成功');
-          loadGames();
-        } else {
-          toast(result.error, 'error');
-        }
-      } catch (e) {
-        toast('抓取失败', 'error');
-      }
-    }
-
-    // Steam 标签抓取
-    async function fetchSteamTags() {
-      const appId = document.getElementById('steamAppIdInput').value.trim() || document.getElementById('editAppId').value.trim();
-      if (!appId) return toast('请输入Steam AppID', 'error');
-
-      toast('正在从Steam抓取标签...');
-      try {
-        const r = await fetch(`/api/tags/steam/${appId}`, { method: 'POST' });
-        const result = await r.json();
-        if (result.tags && result.tags.length > 0) {
-          const existing = document.getElementById('editTags').value;
-          const existingTags = existing.split(/[,，]/).map(t => t.trim()).filter(Boolean);
-          const merged = [...new Set([...existingTags, ...result.tags])];
-          document.getElementById('editTags').value = merged.join(', ');
-          toast(`抓到 ${result.tags.length} 个标签`);
-        } else {
-          toast('没有找到标签', 'error');
-        }
-      } catch (e) {
-        toast('抓取失败', 'error');
-      }
-    }
-
     // 备份
     async function backup() {
       try {
-        const r = await fetch('/api/backup', { method: 'POST' });
+        const r = await apiFetch('/api/backup', { method: 'POST' });
         const result = await r.json();
         if (result.success) toast('备份成功');
       } catch (e) {
@@ -608,15 +574,27 @@
       }
     }
 
-    // 部署
+    // 部署（等待真实结果返回，不再静默失败）
     async function deploy() {
-      if (!confirm('确定构建并部署到GitHub Pages？')) return;
+      if (!confirm('确定构建并部署到GitHub Pages？\n（构建+推送约需 1-2 分钟，请耐心等待）')) return;
+      const btn = document.querySelector('.nav-actions .btn-success');
+      const oldText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '⏳ 部署中...';
       try {
-        const r = await fetch('/api/deploy', { method: 'POST' });
+        const r = await apiFetch('/api/deploy', { method: 'POST' });
         const result = await r.json();
-        toast('部署已启动，请查看终端');
+        if (result.success) {
+          toast('✅ 部署成功');
+        } else {
+          toast('部署失败: ' + (result.error || '未知错误'), 'error');
+          if (result.output) console.error('部署输出:', result.output);
+        }
       } catch (e) {
-        toast('部署失败', 'error');
+        toast('部署失败: ' + e.message, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = oldText;
       }
     }
 

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const xlsx = require('xlsx');
+const { generateId, parseBool, parseNullableString } = require('./lib/utils');
 
 const EXCEL_PATH = path.join(__dirname, '../data/Standard_Game_List.xlsx');
 const JSON_PATH = path.join(__dirname, '../data/games.json');
@@ -24,12 +25,9 @@ try {
   
   const games = rawData.map(row => {
     if (!row.title) return null;
+    if (!parseBool(row.isShow, true)) return null;
 
-    const isShowRaw = row.isShow;
-    const isShow = isShowRaw === undefined ? true : (isShowRaw === true || isShowRaw === 'TRUE' || isShowRaw === 'true' || isShowRaw === 1);
-    if (!isShow) return null;
-
-    const id = row.title.toString().replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '').toLowerCase() || `game-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    const id = generateId(row.title);
 
     // 智能匹配真实的图片路径
     let finalCoverPath = `/covers/${id}.jpg`; // 默认路径
@@ -52,18 +50,18 @@ try {
     return {
       id: id,
       title: row.title.toString().trim(),
-      appId: row.appId ? row.appId.toString().trim() : null,
+      appId: parseNullableString(row.appId),
       cover: finalCoverPath,
       playtime: row.playtime ? row.playtime.toString().trim() : '',
-      showPlaytime: row.showPlaytime === true || row.showPlaytime === 'TRUE' || row.showPlaytime === 'true' || row.showPlaytime === 1,
+      showPlaytime: parseBool(row.showPlaytime),
       playStatus: row.playStatus ? row.playStatus.toString().trim() : 'cleared',
       tags: row.tags ? row.tags.toString().split(',').map(t => t.trim()).filter(t => t) : [],
-      isAnchor: row.isAnchor === true || row.isAnchor === 'TRUE' || row.isAnchor === 'true' || row.isAnchor === 1,
+      isAnchor: parseBool(row.isAnchor),
       orderWeight: parseInt(row.orderWeight) || 0,
-      reviewFile: row.reviewFile ? row.reviewFile.toString().trim() : null,
-      pros: row.pros ? row.pros.toString().trim() : null,
-      cons: row.cons ? row.cons.toString().trim() : null,
-      remark: row.remark ? row.remark.toString().trim() : null
+      reviewFile: parseNullableString(row.reviewFile),
+      pros: parseNullableString(row.pros),
+      cons: parseNullableString(row.cons),
+      remark: parseNullableString(row.remark)
     };
   }).filter(game => game !== null);
 
