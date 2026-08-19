@@ -17,6 +17,7 @@ const { exec } = require('child_process');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { generateId, validateGame } = require('../scripts/lib/utils');
+const { fetchMobileCover } = require('../scripts/lib/mobile-fetcher');
 
 const execAsync = promisify(exec);
 
@@ -245,6 +246,34 @@ app.post('/api/covers/:id/steam', async (req, res) => {
       } catch (e) { continue; }
     }
     res.status(500).json({ error: '所有Steam CDN都下载失败' });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// 从手游数据源下载封面（小黑盒 → TapTap → 好游快爆 → Bing 级联）
+app.post('/api/covers/:id/mobile', async (req, res) => {
+  try {
+    const games = JSON.parse(fs.readFileSync(GAMES_JSON, 'utf8'));
+    const game = games.find(g => g && g.id === req.params.id);
+    if (!game) return res.status(404).json({ error: '游戏不存在' });
+
+    const result = await fetchMobileCover(game, COVERS_DIR);
+    if (!result) {
+      return res.status(500).json({ error: '所有数据源均抓取失败（小黑盒/TapTap/好游快爆/Bing）' });
+    }
+
+    // 清理旧的 Bing 兜底图，避免孤儿文件堆积
+    if (game.cover && game.cover.includes('bing_')) {
+      const oldFile = path.join(ROOT, 'public', game.cover);
+      if (fs.existsSync(oldFile)) {
+        try { fs.unlinkSync(oldFile); } catch (e) { /* 删除失败不影响主流程 */ }
+      }
+    }
+
+    game.cover = result.coverPath;
+    fs.writeFileSync(GAMES_JSON, JSON.stringify(games, null, 2), 'utf8');
+    res.json({ success: true, cover: result.coverPath, source: result.source });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }

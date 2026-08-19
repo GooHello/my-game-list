@@ -17,6 +17,24 @@
 - `npm run validate-data` —— 任何数据改动后跑一遍
 - `npm run compress-covers` —— 压缩超 200KB 的封面（`--dry-run` 预览）
 
+## 2026-08-19 追加：移动端游戏数据源治理
+
+**问题**：`appId` 长期混用——手游存的是小黑盒 ID（999xxxxx/900xxxxxx），
+抓取脚本却拿它请求 Steam CDN，必然 404，最后全落到 Bing 搜图兜底。
+
+**方案与实施**：
+1. **`idSource` 字段**（`steam`/`heybox`/`null`）：明确区分每条记录 appId 的来源。
+   迁移判定不靠猜：Steam 官方 appdetails API 实测 + 小黑盒搜索交叉验证。
+   结果：steam=429、heybox=21、null=1（香肠派对/鸣潮/帕斯卡契约/艾希为双平台，归 steam）。
+2. **`scripts/lib/mobile-fetcher.js`** 共享模块：小黑盒 → TapTap → 好游快爆（m.3839.com）→ Bing
+   四级级联抓取手游封面，文件按来源加前缀 `heybox_`/`taptap_`/`haoyou_`/`bing_`。
+3. **`update-and-fetch.js`** 修复分支：手游不再请求 Steam CDN；重写 JSON 时继承已有 idSource。
+4. **Admin 面板**：新增 `/api/covers/:id/mobile` 端点；抓取按钮按 idSource 自动分流；
+   手游抓到封面后自动清理旧的 bing_ 兜底图。
+5. 迁移前备份：`data/backup/games_backup_before_idsource_migration.json`。
+
+**已知遗留**（人工核对项，见迁移输出）：个别游戏小黑盒当前 ID 与库中不一致时已保守保留原值。
+
 ---
 
 ## 项目现状总结

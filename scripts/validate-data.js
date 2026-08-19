@@ -54,6 +54,14 @@ games.forEach((g, i) => {
 if (schemaBad === 0) ok(`${games.filter(g => g).length} 条记录全部通过 schema 校验`);
 else fail(`共 ${schemaBad} 条记录字段不合法`);
 
+// 1.5 idSource 分布（appId 来源区分：steam / heybox / 无）
+const srcCount = {};
+games.filter(g => g).forEach(g => {
+  const s = g.idSource || 'none';
+  srcCount[s] = (srcCount[s] || 0) + 1;
+});
+ok(`idSource 分布: ${Object.entries(srcCount).map(([k, v]) => k + '=' + v).join(' ')}`);
+
 // 2. 重复 id
 const ids = games.filter(g => g).map(g => g.id);
 const dupIds = ids.filter((id, i) => ids.indexOf(id) !== i);

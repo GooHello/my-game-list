@@ -183,7 +183,7 @@
             </div>
             <div style="display:flex;gap:4px;align-items:flex-end;">
               <div class="form-group" style="margin:0;flex:1">
-                <label>Steam AppID（输入后回车自动抓取）</label>
+                <label>Steam / 小黑盒 ID（回车自动抓取，自动识别来源）</label>
                 <input type="text" id="steamAppIdInput" placeholder="如 730" onkeydown="if(event.key==='Enter'){event.preventDefault();autoFetchSteam()}">
               </div>
               <button class="btn btn-primary btn-sm" onclick="autoFetchSteam()" style="margin-bottom:0;height:38px">抓取</button>
@@ -505,25 +505,47 @@
       }
     }
 
-    // 一键自动抓取（封面 + 标签 + 名称）
+    // 一键自动抓取：按游戏 idSource 自动分流
+    // - Steam 游戏：Steam CDN 封面 + Steam 标签/名称
+    // - 手游（idSource=heybox）：小黑盒→TapTap→好游快爆→Bing 级联封面
     async function autoFetchSteam() {
       const id = document.getElementById('editId').value;
       const appId = document.getElementById('steamAppIdInput').value.trim();
-      if (!appId) return toast('请输入Steam AppID', 'error');
+      const game = id ? allGames.find(g => g.id === id) : null;
+      const isMobileGame = game && (game.idSource === 'heybox' ||
+        (!game.appId && (game.tags || []).includes('Mobile')));
+
+      if (!isMobileGame && !appId) return toast('请输入 AppID', 'error');
 
       const status = document.getElementById('fetchStatus');
-      status.innerHTML = '⏳ 正在抓取封面...';
+      status.innerHTML = isMobileGame ? '⏳ 正在抓取手游封面（小黑盒/TapTap/好游快爆）...' : '⏳ 正在抓取封面...';
 
-      // 1. 抓取封面
+      // 1. 抓取封面（按来源分流）
       if (id) {
         try {
-          const r = await apiFetch(`/api/covers/${encodeURIComponent(id)}/steam`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ appId }) });
+          const url = isMobileGame
+            ? `/api/covers/${encodeURIComponent(id)}/mobile`
+            : `/api/covers/${encodeURIComponent(id)}/steam`;
+          const body = isMobileGame ? {} : { appId };
+          const r = await apiFetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
           const result = await r.json();
           if (result.success) {
             document.getElementById('editCoverPreview').src = result.cover + '?t=' + Date.now();
             document.getElementById('editCoverPreview').style.display = 'block';
+            if (isMobileGame) {
+              // 手游暂无可靠标签源，抓到封面即完成
+              status.innerHTML = `✅ 封面OK（来源: ${result.source}）`;
+              loadGames();
+              setTimeout(() => { status.innerHTML = ''; }, 5000);
+              return;
+            }
             status.innerHTML = '✅ 封面OK ⏳ 正在抓取标签...';
           } else {
+            if (isMobileGame) {
+              status.innerHTML = '❌ 抓取失败: ' + (result.error || '');
+              setTimeout(() => { status.innerHTML = ''; }, 8000);
+              return;
+            }
             status.innerHTML = '❌ 封面失败 ⏳ 正在抓取标签...';
           }
         } catch (e) {

@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const xlsx = require('xlsx');
 const axios = require('axios');
-const cheerio = require('cheerio');
 const { generateId, parseBool, parseNullableString } = require('./lib/utils');
+const { fetchMobileCover } = require('./lib/mobile-fetcher');
 
 const STANDARD_EXCEL_PATH = path.join(__dirname, '../data/Standard_Game_List.xlsx');
 const JSON_PATH = path.join(__dirname, '../data/games.json');
@@ -13,6 +13,14 @@ if (!fs.existsSync(COVERS_DIR)) {
   fs.mkdirSync(COVERS_DIR, { recursive: true });
 }
 
+// 现有记录索引：Excel 没有 idSource 等字段，重写 JSON 时必须继承，
+// 否则迁移成果（ID 来源区分）会被冲掉
+let EXISTING_BY_ID = {};
+try {
+  const existingGames = JSON.parse(fs.readFileSync(JSON_PATH, 'utf8'));
+  EXISTING_BY_ID = Object.fromEntries(existingGames.filter(g => g).map(g => [g.id, g]));
+} catch (e) { /* 首次导入视为空库 */ }
+
 // 辅助函数：实时更新 JSON
 function updateJsonRealtime(gamesArray) {
   const jsonGames = gamesArray.map(row => {
@@ -21,10 +29,18 @@ function updateJsonRealtime(gamesArray) {
 
     const id = generateId(row.title);
 
+    // idSource 继承：已有记录沿用；新记录按 Mobile 标签推断
+    const existing = EXISTING_BY_ID[id];
+    const isMobileRow = row.tags ? row.tags.toString().includes('Mobile') : false;
+    const idSource = existing && existing.idSource !== undefined
+      ? existing.idSource
+      : (isMobileRow ? (row.appId ? 'heybox' : null) : (row.appId ? 'steam' : null));
+
     return {
       id: id,
       title: row.title.toString().trim(),
       appId: parseNullableString(row.appId),
+      idSource: idSource,
       cover: row.cover || `/covers/${id}.jpg`,
       playtime: row.playtime ? row.playtime.toString().trim() : '',
       showPlaytime: parseBool(row.showPlaytime),
@@ -104,84 +120,7 @@ async function downloadSteamCover(appId, gameId) {
   }
 }
 
-// 4. 下载任意 URL 的图片
-async function downloadImage(url, gameId, prefix = '') {
-  const fileName = `${prefix}${gameId}.jpg`;
-  const filePath = path.join(COVERS_DIR, fileName);
-  try {
-    const response = await axios({ url: url, method: 'GET', responseType: 'stream', timeout: 8000 });
-    return new Promise((resolve, reject) => {
-      const writer = fs.createWriteStream(filePath);
-      response.data.pipe(writer);
-      writer.on('finish', () => resolve(`/covers/${fileName}`));
-      writer.on('error', reject);
-    });
-  } catch (error) {
-    return null;
-  }
-}
-
-// 5. TapTap 网页爬虫 (专治国内手游)
-async function fetchFromTapTap(title, gameId) {
-  console.log(`   📱 尝试在 TapTap 搜索手游: ${title}`);
-  try {
-    const searchUrl = `https://www.taptap.cn/search/${encodeURIComponent(title)}`;
-    const response = await axios.get(searchUrl, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
-      timeout: 5000
-    });
-    const $ = cheerio.load(response.data);
-    
-    const firstImg = $('.search-item-game img').first();
-    if (firstImg.length) {
-      let imgUrl = firstImg.attr('src') || firstImg.attr('data-src');
-      if (imgUrl) {
-        imgUrl = imgUrl.split('?')[0];
-        const coverPath = await downloadImage(imgUrl, gameId, 'taptap_');
-        
-        const tags = [];
-        $('.search-item-game .game-tags a').each((i, el) => {
-          tags.push($(el).text().trim());
-        });
-        
-        return { coverPath, tags: tags.slice(0, 3) };
-      }
-    }
-  } catch (error) {}
-  return null;
-}
-
-// 6. Bing 图片搜索 (终极兜底)
-async function fetchImageFromBing(title, gameId) {
-  console.log(`   🔍 尝试使用 Bing 图片搜索兜底: ${title}`);
-  try {
-    const query = encodeURIComponent(`${title} 游戏海报 竖版`);
-    const searchUrl = `https://cn.bing.com/images/search?q=${query}&form=HDRSC2&first=1`;
-    const response = await axios.get(searchUrl, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
-      timeout: 5000
-    });
-    const $ = cheerio.load(response.data);
-    let imageUrl = null;
-    $('a.iusc').each((i, el) => {
-      if (imageUrl) return;
-      const mData = $(el).attr('m');
-      if (mData) {
-        try {
-          const mJson = JSON.parse(mData);
-          if (mJson.murl && (mJson.murl.endsWith('.jpg') || mJson.murl.endsWith('.png'))) {
-            imageUrl = mJson.murl;
-          }
-        } catch (e) {}
-      }
-    });
-
-    if (imageUrl) {
-      return await downloadImage(imageUrl, gameId, 'bing_');
-    }
-  } catch (error) {}
-  return null;
-}
+// TapTap / 好游快爆 / Bing 抓取逻辑已统一移入 scripts/lib/mobile-fetcher.js
 
 // ==========================================
 // 主流程 (全速并发版)
@@ -226,40 +165,32 @@ async function main() {
       
       let appId = game.appId ? game.appId.toString().trim() : null;
       let coverPath = null;
+      const isMobileGame = game.tags ? game.tags.toString().includes('Mobile') : false;
+      const idSource = (EXISTING_BY_ID[id] && EXISTING_BY_ID[id].idSource) ||
+        (isMobileGame ? (appId ? 'heybox' : null) : (appId ? 'steam' : null));
 
-      // 1. 如果有 AppID，直接秒抓 Steam
-      if (appId && appId !== 'null') {
+      // 1. Steam 游戏：tags + 封面走 Steam（手游的小黑盒 ID 绝不请求 Steam！）
+      if (!isMobileGame && appId && appId !== 'null') {
         const steamTags = await getSteamTags(appId);
         if (steamTags.length > 0) {
           const existingTags = game.tags ? game.tags.toString().split(',').map(t => t.trim()) : [];
           const customTags = existingTags.filter(t => ['小想法', '实战项目'].includes(t));
           game.tags = [...new Set([...customTags, ...steamTags])].join(', ');
         }
-        
+
         coverPath = await downloadSteamCover(appId, id);
         if (coverPath) {
           console.log(`   ✅ [${title}] Steam 原生竖图下载成功`);
         }
       }
 
-      // 2. 如果没有 AppID (手游/独占)，或者 Steam 没图，走 TapTap
+      // 2. 手游（或 Steam 无图）：小黑盒 → TapTap → 好游快爆 → Bing 级联
       if (!coverPath) {
-        const tapTapData = await fetchFromTapTap(title, id);
-        if (tapTapData) {
-          if (tapTapData.tags.length > 0 && (!game.tags || !game.tags.includes(tapTapData.tags[0]))) {
-            const existingTags = game.tags ? game.tags.toString().split(',').map(t => t.trim()) : [];
-            const customTags = existingTags.filter(t => ['小想法', '实战项目'].includes(t));
-            game.tags = [...new Set([...customTags, ...tapTapData.tags])].join(', ');
-          }
-          coverPath = tapTapData.coverPath;
-          if (coverPath) console.log(`   ✅ [${title}] TapTap 封面下载成功`);
+        const hit = await fetchMobileCover({ id, title, appId, idSource }, COVERS_DIR, console.log);
+        if (hit) {
+          coverPath = hit.coverPath;
+          console.log(`   ✅ [${title}] 封面抓取成功（来源: ${hit.source}）`);
         }
-      }
-
-      // 3. 终极兜底：Bing 图片搜索
-      if (!coverPath) {
-        coverPath = await fetchImageFromBing(title, id);
-        if (coverPath) console.log(`   ✅ [${title}] Bing 兜底封面下载成功`);
       }
 
       // 4. 结算

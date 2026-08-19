@@ -48,6 +48,8 @@ const GAME_SCHEMA = {
   id: 'string',
   title: 'string',
   appId: 'string|null',
+  // appId 的来源：steam=Steam AppID，heybox=小黑盒手游 ID，null=无 ID
+  idSource: 'string|null',
   cover: 'string',
   playtime: 'string',
   showPlaytime: 'boolean',
@@ -60,6 +62,8 @@ const GAME_SCHEMA = {
   cons: 'string|null',
   remark: 'string|null',
 };
+
+const VALID_ID_SOURCE = ['steam', 'heybox'];
 
 const VALID_PLAY_STATUS = ['cleared', 'completed', 'playing', 'on-hold', 'dropped'];
 
@@ -76,6 +80,9 @@ function validateGame(game) {
   if (typeof game.id !== 'string' || !game.id) errors.push('id 必须是非空字符串');
   if (typeof game.title !== 'string' || !game.title.trim()) errors.push('title 必须是非空字符串');
   if (game.appId !== null && typeof game.appId !== 'string') errors.push('appId 必须是字符串或 null');
+  if (game.idSource !== null && game.idSource !== undefined && !VALID_ID_SOURCE.includes(game.idSource)) {
+    errors.push('idSource 必须是 steam/heybox/null 之一');
+  }
   if (typeof game.cover !== 'string') errors.push('cover 必须是字符串');
   if (typeof game.playtime !== 'string') errors.push('playtime 必须是字符串');
   if (typeof game.showPlaytime !== 'boolean') errors.push('showPlaytime 必须是布尔值');
