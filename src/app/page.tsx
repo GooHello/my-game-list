@@ -4,61 +4,21 @@ import { useState, useMemo, useCallback, useRef } from 'react';
 import FilterBar from '@/components/FilterBar';
 import GameGrid from '@/components/GameGrid';
 import gamesData from '../../data/games.json';
+import tagConfig from '../../data/tag-config.json';
 
 // ==========================================
-// 标签系统：白名单 + 映射
+// 标签系统：业务配置外置于 data/tag-config.json（前端只渲染，不写死规则）
 // ==========================================
 
 // 三级标签体系，导航栏分行显示
-const TAG_TIERS = {
-  // 第1行：核心大类
-  core: ['动作', '射击', '角色扮演', '策略', '模拟', '竞速', '体育', '格斗', '解谜', '冒险'],
-  // 第2行：子玩法细分
-  sub: [
-    '第一人称射击', '第三人称射击', '动作RPG', '即时战略', '回合制',
-    'MOBA', '大逃杀', '平台游戏', '类银河战士恶魔城', '类魂系列',
-    '类Rogue', '塔防', '卡牌', '砍杀', '潜行', '跑酷',
-  ],
-  // 第3行：玩法模式
-  mode: ['开放世界', '沙盒', '生存', '建造'],
-};
+const TAG_TIERS = tagConfig.tiers;
+// 标签映射：将细碎/英文/近义标签归类到核心标签（含 Mobile→手游）
+const TAG_MAPPING: Record<string, string> = tagConfig.mapping;
+// 手游分区的判定标签
+const MOBILE_TAG = tagConfig.mobileTag;
 
 // 合并为完整列表，用于匹配计算
 const CORE_TAGS: string[] = [...TAG_TIERS.core, ...TAG_TIERS.sub, ...TAG_TIERS.mode];
-
-// 标签映射：将细碎/英文/近义标签归类到核心标签
-const TAG_MAPPING: Record<string, string> = {
-  // 英文 → 中文
-  'Action': '动作', 'Action RPG': '动作RPG', 'Adventure': '冒险',
-  'RPG': '角色扮演', 'Souls-like': '类魂系列', 'Cute': '休闲',
-  'Funny': '休闲', 'Anime': '独立',
-  // 近义合并
-  '动作角色扮演': '动作RPG', '动作冒险': '动作',
-  '动作类 Rogue': '类Rogue', '轻度 Rogue': '类Rogue', '牌组构建式类 Rogue': '类Rogue',
-  '类 Rogue': '类Rogue',
-  '日系角色扮演': '角色扮演', '电脑角色扮演': '角色扮演', '战术角色扮演': '角色扮演',
-  '策略角色扮演': '策略', '团队角色扮演': '角色扮演',
-  '第一人称': '第一人称射击', '第三人称': '第三人称射击',
-  '第三人称射击': '第三人称射击',
-  '心理恐怖': '恐怖', '生存恐怖': '恐怖',
-  '类银河战士恶魔城': '类银河战士恶魔城',
-  '类魂系列': '类魂系列',
-  '2D 平台': '平台游戏', '3D 平台': '平台游戏', '2D 格斗': '格斗', '平台解谜': '解谜',
-  '大型多人在线': '多人', '在线合作': '合作', '本地合作': '合作',
-  '玩家对战': '多人', '玩家对战环境': '多人',
-  '像素图形': '像素',
-  '开放世界生存制作': '生存', '殖民模拟': '模拟', '生活模拟': '模拟', '农场模拟': '模拟',
-  '城市营造': '建造', '基地建设': '建造',
-  '回合战略': '回合制', '回合制战斗': '回合制', '回合制战术': '回合制',
-  '即时战术': '即时战略',
-  '黑暗奇幻': '奇幻',
-  '卡牌战斗': '卡牌', '卡牌游戏': '卡牌', '牌组构建': '卡牌',
-  '视觉小说': '剧情丰富', '互动小说': '剧情丰富',
-  '战争游戏': '策略', '战争': '策略', '军事': '射击',
-  '僵尸': '恐怖', '后末日': '生存',
-  'Mobile': '手游',
-  // 过于细碎的标签不映射（会被过滤掉）
-};
 
 export default function Home() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
@@ -87,11 +47,7 @@ export default function Home() {
       // 每个游戏对每个核心标签只计数一次
       const matchedCoreTags = new Set<string>();
       game.tags.forEach(rawTag => {
-        if (rawTag === 'Mobile') {
-          matchedCoreTags.add('手游');
-          return;
-        }
-        // 直接匹配核心标签
+        // 直接匹配核心标签（Mobile→手游 由 mapping 配置统一处理）
         if (CORE_TAGS.includes(rawTag)) {
           matchedCoreTags.add(rawTag);
         }
@@ -135,12 +91,9 @@ export default function Home() {
         return game.tags.some(rawTag => {
           // 直接匹配
           if (rawTag === selectedTag) return true;
-          // Mobile 特殊处理
-          if (selectedTag === '手游' && rawTag === 'Mobile') return true;
-          // 通过映射匹配
+          // 通过映射匹配（Mobile→手游 由 mapping 配置统一处理）
           const mapped = TAG_MAPPING[rawTag];
           if (mapped === selectedTag) return true;
-          // 核心标签本身也可能出现在原始标签中
           return false;
         });
       });
@@ -153,7 +106,7 @@ export default function Home() {
     result.forEach(game => {
       if (game.isAnchor) {
         anchors.push(game);
-      } else if (game.tags && game.tags.includes('Mobile')) {
+      } else if (game.tags && game.tags.includes(MOBILE_TAG)) {
         mobiles.push(game);
       } else {
         normals.push(game);

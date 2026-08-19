@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "my-game-list",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,21 +10,18 @@
     "generate-excel": "node scripts/generate-standard-excel.js",
     "import-excel": "node scripts/import-excel.js",
     "update-and-fetch": "node scripts/update-and-fetch.js",
+    "validate-data": "node scripts/validate-data.js",
     "admin": "node admin/server.js"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "axios": "^1.7.9",
     "cheerio": "^1.0.0",
-    "csv-parser": "^3.2.0",
     "express": "^5.2.1",
     "multer": "^2.1.1",
     "next": "15.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-markdown": "^10.0.1",
-    "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.1",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {

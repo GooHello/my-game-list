@@ -82,13 +82,6 @@ const upload = multer({
   limits: { fileSize: 10 * 1024 * 1024 }
 });
 
-// schema 校验中间件：POST 的游戏数据必须通过校验
-function validateGamePayload(req, res, next) {
-  const { valid, errors } = validateGame(req.body);
-  if (!valid) return res.status(400).json({ error: '数据校验失败: ' + errors.join('; ') });
-  next();
-}
-
 // ==========================================
 // API: 游戏管理
 // ==========================================
@@ -138,8 +131,8 @@ app.put('/api/games/:id', (req, res) => {
   }
 });
 
-// 添加游戏（id 统一由 generateId 生成，schema 校验后写入）
-app.post('/api/games', validateGamePayload, (req, res) => {
+// 添加游戏（id 统一由 generateId 生成，缺省字段补齐后做 schema 校验）
+app.post('/api/games', (req, res) => {
   try {
     const games = JSON.parse(fs.readFileSync(GAMES_JSON, 'utf8'));
     const newGame = {
@@ -158,6 +151,9 @@ app.post('/api/games', validateGamePayload, (req, res) => {
       cons: req.body.cons || null,
       remark: req.body.remark || null,
     };
+
+    const { valid, errors } = validateGame(newGame);
+    if (!valid) return res.status(400).json({ error: '数据校验失败: ' + errors.join('; ') });
 
     // 检查是否重复
     if (games.find(g => g && g.id === newGame.id)) {
