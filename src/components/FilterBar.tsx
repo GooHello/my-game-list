@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 interface TagTiers {
   core: string[];
@@ -14,7 +15,19 @@ interface FilterBarProps {
   onSelectTag: (tag: string | null) => void;
   searchQuery: string;
   onSearch: (query: string) => void;
+  statusCounts: Record<string, number>;
+  selectedStatus: string | null;
+  onSelectStatus: (status: string | null) => void;
 }
+
+// 状态枚举的展示配置（与 GameCard 的状态图标/文案保持一致）
+const STATUS_META: Record<string, { label: string; icon: string }> = {
+  playing: { label: '游玩中', icon: '🎮' },
+  cleared: { label: '已通关', icon: '🏆' },
+  completed: { label: '全成就', icon: '✨' },
+  'on-hold': { label: '搁置', icon: '⏳' },
+  dropped: { label: '放弃', icon: '❌' },
+};
 
 function TagButton({ tag, isSelected, onClick, compact = false }: { tag: string; isSelected: boolean; onClick: () => void; compact?: boolean }) {
   return (
@@ -31,16 +44,12 @@ function TagButton({ tag, isSelected, onClick, compact = false }: { tag: string;
   );
 }
 
-export default function FilterBar({ tagTiers, selectedTag, onSelectTag, searchQuery, onSearch }: FilterBarProps) {
+export default function FilterBar({ tagTiers, selectedTag, onSelectTag, searchQuery, onSearch, statusCounts, selectedStatus, onSelectStatus }: FilterBarProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
+  // 只显示有游戏的状态档，按 STATUS_META 的固定顺序
+  const activeStatuses = Object.keys(STATUS_META).filter(s => (statusCounts[s] || 0) > 0);
 
   const tierConfig = [
     { label: 'Genre', tags: tagTiers.core },
@@ -56,6 +65,53 @@ export default function FilterBar({ tagTiers, selectedTag, onSelectTag, searchQu
     }
   };
 
+  const handleStatusClick = (status: string | null) => {
+    onSelectStatus(status);
+    if (isMobile) {
+      setIsExpanded(false);
+    }
+  };
+
+  // 「全部游戏」= 重置所有筛选（标签 + 搜索 + 状态）
+  const resetAll = () => {
+    onSelectTag(null);
+    onSearch('');
+    onSelectStatus(null);
+  };
+
+  // 状态行（桌面端与移动端展开态共用）
+  const statusRow = activeStatuses.length > 0 && (
+    <div className="flex items-center gap-2 flex-wrap">
+      <span className="text-[#8f98a0] text-sm w-20 shrink-0 text-left font-bold">状态</span>
+      {activeStatuses.map(status => (
+        <TagButton
+          key={status}
+          tag={`${STATUS_META[status].icon} ${STATUS_META[status].label} ${statusCounts[status]}`}
+          isSelected={selectedStatus === status}
+          onClick={() => handleStatusClick(selectedStatus === status ? null : status)}
+        />
+      ))}
+    </div>
+  );
+
+  // 移动端展开态的状态行（紧凑样式）
+  const statusRowCompact = activeStatuses.length > 0 && (
+    <div>
+      <span className="text-[#8f98a0] text-xs font-bold mb-1 block">状态</span>
+      <div className="flex flex-wrap gap-1.5">
+        {activeStatuses.map(status => (
+          <TagButton
+            key={status}
+            tag={`${STATUS_META[status].icon} ${STATUS_META[status].label} ${statusCounts[status]}`}
+            isSelected={selectedStatus === status}
+            onClick={() => handleStatusClick(selectedStatus === status ? null : status)}
+            compact
+          />
+        ))}
+      </div>
+    </div>
+  );
+
   // ========================
   // 移动端：折叠/展开模式
   // ========================
@@ -68,8 +124,8 @@ export default function FilterBar({ tagTiers, selectedTag, onSelectTag, searchQu
             <div className="flex items-center gap-2">
               <TagButton
                 tag="全部游戏"
-                isSelected={selectedTag === null && !searchQuery}
-                onClick={() => { handleTagClick(null); onSearch(''); }}
+                isSelected={selectedTag === null && !searchQuery && selectedStatus === null}
+                onClick={resetAll}
                 compact
               />
               {selectedTag && (
@@ -80,33 +136,43 @@ export default function FilterBar({ tagTiers, selectedTag, onSelectTag, searchQu
                   compact
                 />
               )}
+              {selectedStatus && (
+                <TagButton
+                  tag={`${STATUS_META[selectedStatus]?.icon || ''} ${STATUS_META[selectedStatus]?.label || selectedStatus}`}
+                  isSelected={true}
+                  onClick={() => handleStatusClick(null)}
+                  compact
+                />
+              )}
               <button
                 onClick={() => setIsExpanded(true)}
                 className="ml-auto px-3 py-1 text-xs text-[#66c0f4] border border-[#66c0f4]/40 rounded-sm bg-[#202d39] hover:bg-[#2a475e] transition-colors flex items-center gap-1"
               >
-                展开游戏类型 ▾
+                展开筛选 ▾
               </button>
             </div>
           )}
 
-          {/* 展开状态：完整三级标签 */}
+          {/* 展开状态：状态 + 完整三级标签 */}
           {isExpanded && (
             <div className="space-y-2.5">
               {/* 顶部：标题 + 收起按钮 */}
               <div className="flex items-center justify-between pb-1 border-b border-[#2a475e]/50">
                 <TagButton
                   tag="全部游戏"
-                  isSelected={selectedTag === null}
-                  onClick={() => handleTagClick(null)}
+                  isSelected={selectedTag === null && selectedStatus === null}
+                  onClick={resetAll}
                   compact
                 />
                 <button
                   onClick={() => setIsExpanded(false)}
                   className="px-3 py-1 text-xs text-[#66c0f4] border border-[#66c0f4]/40 rounded-sm bg-[#202d39] hover:bg-[#2a475e] transition-colors"
                 >
-                  收起游戏类型 ▴
+                  收起筛选 ▴
                 </button>
               </div>
+
+              {statusRowCompact}
 
               {tierConfig.map(({ label, tags }, tierIdx) => (
                 tags.length > 0 && (
@@ -134,11 +200,12 @@ export default function FilterBar({ tagTiers, selectedTag, onSelectTag, searchQu
   }
 
   // ========================
-  // 桌面端：三行完整展示
+  // 桌面端：状态行 + 三行完整展示
   // ========================
   return (
     <div className="sticky top-0 z-30 bg-[#1b2838]/95 backdrop-blur-md border-b border-[#2a475e] shadow-lg">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 space-y-2">
+        {statusRow}
         {tierConfig.map(({ label, tags }, tierIdx) => (
           tags.length > 0 && (
             <div key={tierIdx} className="flex items-center gap-2 flex-wrap">
@@ -148,8 +215,8 @@ export default function FilterBar({ tagTiers, selectedTag, onSelectTag, searchQu
               {tierIdx === 0 && (
                 <TagButton
                   tag="全部游戏"
-                  isSelected={selectedTag === null && !searchQuery}
-                  onClick={() => { onSelectTag(null); onSearch(''); }}
+                  isSelected={selectedTag === null && !searchQuery && selectedStatus === null}
+                  onClick={resetAll}
                 />
               )}
               {tags.map(tag => (

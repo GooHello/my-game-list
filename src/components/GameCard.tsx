@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState, useRef, MouseEvent, useEffect } from 'react';
 import tagConfig from '../../data/tag-config.json';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const basePath = process.env.NODE_ENV === 'production' ? '/my-game-list' : '';
 
@@ -20,22 +21,14 @@ interface GameCardProps {
 export default function GameCard({ game }: GameCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [tooltipPos, setTooltipPos] = useState<'left' | 'right'>('right');
-  const [isMobile, setIsMobile] = useState(false);
   const [showMobileInfo, setShowMobileInfo] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const isMobile = useIsMobile();
 
   // 3D Tilt 状态
   const [transform, setTransform] = useState('');
   const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
-
-  // 检测是否为移动端
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   // 点击外部关闭移动端信息面板
   useEffect(() => {

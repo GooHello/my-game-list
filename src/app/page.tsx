@@ -23,7 +23,19 @@ const CORE_TAGS: string[] = [...TAG_TIERS.core, ...TAG_TIERS.sub, ...TAG_TIERS.m
 export default function Home() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const gameListRef = useRef<HTMLDivElement>(null);
+
+  // 各游玩状态的全局计数（用于筛选栏展示，不随其他筛选变化）
+  const statusCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    gamesData.forEach(game => {
+      if (!game) return;
+      const status = game.playStatus || 'unknown';
+      counts[status] = (counts[status] || 0) + 1;
+    });
+    return counts;
+  }, []);
 
   const handleSelectTag = useCallback((tag: string | null) => {
     setSelectedTag(tag);
@@ -78,10 +90,15 @@ export default function Home() {
     // 搜索过滤
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
-      result = result.filter(game => 
+      result = result.filter(game =>
         game.title.toLowerCase().includes(q) ||
         (game.tags && game.tags.some(t => t.toLowerCase().includes(q)))
       );
+    }
+
+    // 游玩状态过滤
+    if (selectedStatus) {
+      result = result.filter(game => game.playStatus === selectedStatus);
     }
 
     // 标签过滤：选中核心标签时，匹配所有相关的原始标签
@@ -172,7 +189,7 @@ export default function Home() {
       mobileGames: genreGroupSort(mobiles),
       normalGames: genreGroupSort(normals)
     };
-  }, [selectedTag, searchQuery]);
+  }, [selectedTag, searchQuery, selectedStatus]);
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -208,12 +225,15 @@ export default function Home() {
         </div>
       </div>
       
-      <FilterBar 
-        tagTiers={displayTags} 
-        selectedTag={selectedTag} 
+      <FilterBar
+        tagTiers={displayTags}
+        selectedTag={selectedTag}
         onSelectTag={handleSelectTag}
         searchQuery={searchQuery}
         onSearch={handleSearch}
+        statusCounts={statusCounts}
+        selectedStatus={selectedStatus}
+        onSelectStatus={setSelectedStatus}
       />
       
       <div ref={gameListRef} className="max-w-7xl mx-auto w-full flex-grow pb-10">
