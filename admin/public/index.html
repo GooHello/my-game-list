@@ -462,13 +462,31 @@
       }
     }
 
+    // 上传前压缩：宽度超 600px 或体积超 200KB 的图片压成 JPEG
+    // （与 scripts/compress-covers.js 的存量压缩策略保持一致）
+    async function compressForUpload(file) {
+      const bitmap = await createImageBitmap(file);
+      const needCompress = file.size > 200 * 1024 || bitmap.width > 600;
+      if (!needCompress) { bitmap.close(); return file; }
+      const scale = Math.min(1, 600 / bitmap.width);
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(bitmap.width * scale);
+      canvas.height = Math.round(bitmap.height * scale);
+      canvas.getContext('2d').drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+      bitmap.close();
+      const blob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.82));
+      return new File([blob], file.name.replace(/\.[^.]+$/, '') + '.jpg', { type: 'image/jpeg' });
+    }
+
     // 上传封面
     async function uploadCover() {
       const id = document.getElementById('editId').value;
       if (!id) return toast('请先保存游戏再上传封面', 'error');
-      
-      const file = document.getElementById('coverUpload').files[0];
+
+      let file = document.getElementById('coverUpload').files[0];
       if (!file) return;
+
+      try { file = await compressForUpload(file); } catch (e) { /* 压缩失败则上传原图 */ }
 
       const fd = new FormData();
       fd.append('cover', file);
