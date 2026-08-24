@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState, useRef, MouseEvent, useEffect } from 'react';
 import tagConfig from '../../data/tag-config.json';
 import { useIsMobile } from '@/hooks/useIsMobile';
@@ -73,6 +72,12 @@ export default function GameCard({ game }: GameCardProps) {
       ? (game.cover.startsWith('/') ? `${basePath}${game.cover}` : game.cover)
       : fallbackImage;
 
+  // 缩略图档位：卡位实际显示 ~150-300px，普通屏下 300w 小图（~15-30KB），
+  // 高清屏/大卡位浏览器自动选 600w 原图。无缩略图时退化为单档原图。
+  const thumbSrc = !imgError && coverSrc.includes('/covers/')
+    ? coverSrc.replace('/covers/', '/covers/thumbs/')
+    : null;
+
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (isMobile || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
@@ -142,14 +147,15 @@ export default function GameCard({ game }: GameCardProps) {
           boxShadow: isHovered ? '0 20px 40px rgba(0,0,0,0.6)' : '0 4px 6px rgba(0,0,0,0.3)'
         }}
       >
-        <Image
+        <img
           src={coverSrc}
           alt={game.title}
-          fill
-          className="object-cover object-center"
-          sizes="(max-width: 768px) 25vw, (max-width: 1200px) 20vw, 14vw"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          srcSet={thumbSrc ? `${thumbSrc} 300w, ${coverSrc} 600w` : undefined}
+          sizes="(max-width: 768px) 33vw, (max-width: 1200px) 20vw, 14vw"
           onError={() => setImgError(true)}
-          unoptimized={coverSrc.startsWith('data:') || coverSrc.startsWith('http')}
         />
 
         {/* 动态反光层 (仅桌面端) */}

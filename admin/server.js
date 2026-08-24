@@ -18,6 +18,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { generateId, validateGame } = require('../scripts/lib/utils');
 const { fetchMobileCover } = require('../scripts/lib/mobile-fetcher');
+const { ensureThumb } = require('../scripts/lib/thumbs');
 
 const execAsync = promisify(exec);
 
@@ -189,9 +190,12 @@ app.delete('/api/games/:id', (req, res) => {
 // ==========================================
 
 // 上传封面
-app.post('/api/covers/:id', upload.single('cover'), (req, res) => {
+app.post('/api/covers/:id', upload.single('cover'), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: '没有文件' });
+
+    // 同步生成缩略图，保持双档图源管线自洽
+    await ensureThumb(path.join(COVERS_DIR, req.file.filename));
 
     const coverPath = `/covers/${req.file.filename}`;
     // 更新 games.json
@@ -235,6 +239,7 @@ app.post('/api/covers/:id/steam', async (req, res) => {
         });
 
         const coverPath = `/covers/${fileName}`;
+        await ensureThumb(filePath);
         const games = JSON.parse(fs.readFileSync(GAMES_JSON, 'utf8'));
         const game = games.find(g => g && g.id === req.params.id);
         if (game) {
@@ -272,6 +277,7 @@ app.post('/api/covers/:id/mobile', async (req, res) => {
     }
 
     game.cover = result.coverPath;
+    await ensureThumb(path.join(ROOT, 'public', result.coverPath));
     fs.writeFileSync(GAMES_JSON, JSON.stringify(games, null, 2), 'utf8');
     res.json({ success: true, cover: result.coverPath, source: result.source });
   } catch (e) {

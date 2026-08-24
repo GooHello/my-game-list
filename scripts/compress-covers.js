@@ -14,6 +14,7 @@
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
+const { ensureThumb } = require('./lib/thumbs');
 
 const COVERS_DIR = path.join(__dirname, '..', 'public', 'covers');
 const args = process.argv.slice(2);
@@ -66,6 +67,8 @@ async function main() {
             await new Promise(r => setTimeout(r, 200));
           }
         }
+        // 源图变了，缩略图同步刷新
+        await ensureThumb(filePath);
       }
       saved += size - buffer.length;
       console.log(`  ${dryRun ? '🔍' : '✅'} ${f}: ${kb(size)} → ${kb(buffer.length)}`);

@@ -68,8 +68,11 @@ const dupIds = ids.filter((id, i) => ids.indexOf(id) !== i);
 if (dupIds.length === 0) ok('无重复 id');
 else fail(`重复 id: ${[...new Set(dupIds)].join(', ')}`);
 
-// 3. cover 路径必须指向真实文件
-const coverFiles = new Set(fs.existsSync(COVERS_DIR) ? fs.readdirSync(COVERS_DIR) : []);
+// 3. cover 路径必须指向真实文件（thumbs 子目录不算封面文件）
+const coverFiles = new Set(
+  (fs.existsSync(COVERS_DIR) ? fs.readdirSync(COVERS_DIR) : [])
+    .filter(f => fs.statSync(path.join(COVERS_DIR, f)).isFile())
+);
 const missing = [];
 for (const g of games) {
   if (!g) continue;
@@ -90,6 +93,11 @@ const referenced = new Set(games.filter(g => g).map(g => (g.cover || '').replace
 const orphans = [...coverFiles].filter(f => !referenced.has(f));
 if (orphans.length === 0) ok('public/covers 无孤儿文件');
 else warn(`${orphans.length} 张孤儿封面（无游戏引用）: ${orphans.slice(0, 5).join(', ')}${orphans.length > 5 ? ' ...' : ''}`);
+
+// 4.5 缩略图同步检查（警告级：缺失时 srcset 退化为原图，不破图）
+const missingThumbs = [...referenced].filter(f => !fs.existsSync(path.join(COVERS_DIR, 'thumbs', f)));
+if (missingThumbs.length === 0) ok('全部封面均有缩略图（srcset 双档图源就绪）');
+else warn(`${missingThumbs.length} 张封面缺缩略图（跑 node scripts/generate-thumbs.js 生成）: ${missingThumbs.slice(0, 5).join(', ')}`);
 
 // 5. 标签配置完整性
 console.log('🔍 校验 data/tag-config.json ...');
