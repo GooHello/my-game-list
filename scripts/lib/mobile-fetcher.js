@@ -109,20 +109,26 @@ async function fetchHeyboxCover(game, coversDir) {
 }
 
 /**
- * 来源 2：TapTap（网页搜索爬虫）
+ * 来源 2（首选）：Apple iTunes Search API
+ * 官方 JSON 接口无反爬，返回 512x512 官方封面（方形，3:4 卡位裁切友好）。
+ * 顶部命中需与标题名称重合，防止抓错游戏。
+ * 注：TapTap 网页爬虫因官网 DOM 改版失效，已下线（2026-08）。
  */
-async function fetchTapTapCover(game, coversDir) {
+async function fetchItunesCover(game, coversDir) {
   try {
-    const searchUrl = `https://www.taptap.cn/search/${encodeURIComponent(game.title)}`;
-    const r = await axios.get(searchUrl, { headers: { 'User-Agent': UA_PC }, timeout: 8000 });
-    const $ = cheerio.load(r.data);
-    const firstImg = $('.search-item-game img').first();
-    if (!firstImg.length) return null;
-    let imgUrl = firstImg.attr('src') || firstImg.attr('data-src');
-    if (!imgUrl) return null;
-    imgUrl = imgUrl.split('?')[0];
-    if (imgUrl.startsWith('//')) imgUrl = 'https:' + imgUrl;
-    return downloadCover(imgUrl, game.id, 'taptap_', coversDir, 'https://www.taptap.cn/');
+    const r = await axios.get('https://itunes.apple.com/search', {
+      params: { term: game.title, country: 'cn', entity: 'software', limit: 3 },
+      timeout: 10000,
+    });
+    const results = (r.data && r.data.results) || [];
+    const norm = s => String(s || '').replace(/[^一-龥a-z0-9]/gi, '').toLowerCase();
+    const target = norm(game.title);
+    const hit = results.find(x => {
+      const n = norm(x.trackName);
+      return n && target && (n.includes(target) || target.includes(n) || n.includes(target.split(/[：:]/)[0]));
+    });
+    if (!hit || !hit.artworkUrl512) return null;
+    return downloadCover(hit.artworkUrl512, game.id, 'itunes_', coversDir);
   } catch (e) {
     return null;
   }
@@ -186,7 +192,8 @@ async function fetchBingCover(game, coversDir) {
 }
 
 /**
- * 手游封面级联抓取：小黑盒 → TapTap → 好游快爆 → Bing
+ * 手游封面级联抓取：iTunes 官方图 → 小黑盒 → 好游快爆 → Bing
+ * （2026-08 调整：历史 Bing 搜图产生大量错图；iTunes 官方接口最可靠）
  * @param {object} game 游戏记录（需含 id/title/appId/idSource）
  * @param {string} coversDir 封面目录绝对路径
  * @param {function} [log] 日志函数
@@ -194,8 +201,8 @@ async function fetchBingCover(game, coversDir) {
  */
 async function fetchMobileCover(game, coversDir, log = () => {}) {
   const sources = [
+    ['itunes', fetchItunesCover],
     ['heybox', fetchHeyboxCover],
-    ['taptap', fetchTapTapCover],
     ['haoyou', fetchHaoyouCover],
     ['bing', fetchBingCover],
   ];
@@ -215,7 +222,7 @@ module.exports = {
   searchHeybox,
   checkSteamAppId,
   fetchHeyboxCover,
-  fetchTapTapCover,
+  fetchItunesCover,
   fetchHaoyouCover,
   fetchBingCover,
   fetchMobileCover,
