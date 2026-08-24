@@ -104,6 +104,34 @@ function validateGame(game) {
   return { valid: errors.length === 0, errors };
 }
 
+/**
+ * FNV-1a 哈希（用于生成短 ASCII 文件名）
+ */
+function fnv1a(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, '0');
+}
+
+/**
+ * 封面文件名统一生成：短 ASCII 文件名
+ *
+ * 背景：GitHub Pages 对 percent-编码后超过 ~60 字符的路径返回 404，
+ * 中文文件名编码后 9 字符/字，极易超限（2026-08 实测确认）。
+ * 规则：id 为 ≤24 字符纯 ASCII 时直接用 id；否则 c+8位哈希。
+ * （24+4 扩展名 +28 前缀路径 = 56 编码字符，安全低于 Pages ~60 上限）
+ * @param {string} id 游戏 id
+ * @returns {string} 文件名（含 .jpg）
+ */
+function coverNameFor(id) {
+  const s = String(id || '');
+  if (/^[a-z0-9._-]+$/i.test(s) && s.length <= 24) return `${s}.jpg`;
+  return `c${fnv1a(s)}.jpg`;
+}
+
 module.exports = {
   generateId,
   parseBool,
@@ -111,4 +139,6 @@ module.exports = {
   GAME_SCHEMA,
   VALID_PLAY_STATUS,
   validateGame,
+  fnv1a,
+  coverNameFor,
 };

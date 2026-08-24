@@ -11,6 +11,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const cheerio = require('cheerio');
+const { coverNameFor } = require('./utils');
 
 const UA_PC = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
 const UA_MOBILE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15';
@@ -67,8 +68,9 @@ async function checkSteamAppId(appId) {
  * 从指定 URL 下载封面（写入 COVERS_DIR）
  * @returns {Promise<string|null>} 成功返回 /covers/xxx.jpg
  */
-async function downloadCover(url, gameId, prefix, coversDir, referer) {
-  const fileName = `${prefix}${gameId}.jpg`;
+// 文件名统一走 coverNameFor（短 ASCII，规避 Pages 长编码路径 404）
+async function downloadCover(url, gameId, coversDir, referer) {
+  const fileName = coverNameFor(gameId);
   const filePath = path.join(coversDir, fileName);
   try {
     const r = await axios({
@@ -105,7 +107,7 @@ async function fetchHeyboxCover(game, coversDir) {
     const related = a && b && (a.includes(b) || b.includes(a) || a.includes(b.split(/[：:]/)[0]));
     if (!related) return null; // 搜索结果与目标游戏无关，宁可不抓
   }
-  return downloadCover(hit.image, game.id, 'heybox_', coversDir);
+  return downloadCover(hit.image, game.id, coversDir);
 }
 
 /**
@@ -128,7 +130,7 @@ async function fetchItunesCover(game, coversDir) {
       return n && target && (n.includes(target) || target.includes(n) || n.includes(target.split(/[：:]/)[0]));
     });
     if (!hit || !hit.artworkUrl512) return null;
-    return downloadCover(hit.artworkUrl512, game.id, 'itunes_', coversDir);
+    return downloadCover(hit.artworkUrl512, game.id, coversDir);
   } catch (e) {
     return null;
   }
@@ -156,7 +158,7 @@ async function fetchHaoyouCover(game, coversDir) {
       }
     });
     if (!imgUrl) return null;
-    return downloadCover(imgUrl, game.id, 'haoyou_', coversDir, 'https://m.3839.com/');
+    return downloadCover(imgUrl, game.id, coversDir, 'https://m.3839.com/');
   } catch (e) {
     return null;
   }
@@ -185,7 +187,7 @@ async function fetchBingCover(game, coversDir) {
       }
     });
     if (!imageUrl) return null;
-    return downloadCover(imageUrl, game.id, 'bing_', coversDir);
+    return downloadCover(imageUrl, game.id, coversDir);
   } catch (e) {
     return null;
   }

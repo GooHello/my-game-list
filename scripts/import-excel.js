@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const xlsx = require('xlsx');
-const { generateId, parseBool, parseNullableString } = require('./lib/utils');
+const { generateId, parseBool, parseNullableString, coverNameFor } = require('./lib/utils');
 
 const EXCEL_PATH = path.join(__dirname, '../data/Standard_Game_List.xlsx');
 const JSON_PATH = path.join(__dirname, '../data/games.json');
@@ -29,11 +29,11 @@ try {
 
     const id = generateId(row.title);
 
-    // 智能匹配真实的图片路径
-    let finalCoverPath = `/covers/${id}.jpg`; // 默认路径
-    
-    // 检查是否存在带前缀的图片 (比如 bing_id.jpg, taptap_id.jpg, heybox_id.jpg)
+    // 智能匹配真实的图片路径（新命名优先，兼容迁移前的旧前缀文件）
+    let finalCoverPath = `/covers/${coverNameFor(id)}`; // 默认路径
+
     const possibleFiles = [
+      coverNameFor(id),
       `${id}.jpg`,
       `bing_${id}.jpg`,
       `taptap_${id}.jpg`,

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const xlsx = require('xlsx');
 const axios = require('axios');
-const { generateId, parseBool, parseNullableString } = require('./lib/utils');
+const { generateId, parseBool, parseNullableString, coverNameFor } = require('./lib/utils');
 const { fetchMobileCover } = require('./lib/mobile-fetcher');
 
 const STANDARD_EXCEL_PATH = path.join(__dirname, '../data/Standard_Game_List.xlsx');
@@ -41,7 +41,7 @@ function updateJsonRealtime(gamesArray) {
       title: row.title.toString().trim(),
       appId: parseNullableString(row.appId),
       idSource: idSource,
-      cover: row.cover || `/covers/${id}.jpg`,
+      cover: row.cover || `/covers/${coverNameFor(id)}`,
       playtime: row.playtime ? row.playtime.toString().trim() : '',
       showPlaytime: parseBool(row.showPlaytime),
       playStatus: row.playStatus ? row.playStatus.toString().trim() : 'cleared',
@@ -105,7 +105,7 @@ async function getSteamTags(appId) {
 // 3. Steam 封面下载 (原生竖图)
 async function downloadSteamCover(appId, gameId) {
   const coverUrl = `https://steamcdn-a.akamaihd.net/steam/apps/${appId}/library_600x900.jpg`;
-  const fileName = `${gameId}.jpg`;
+  const fileName = coverNameFor(gameId);
   const filePath = path.join(COVERS_DIR, fileName);
   try {
     const response = await axios({ url: coverUrl, method: 'GET', responseType: 'stream', timeout: 8000 });
@@ -199,7 +199,7 @@ async function main() {
         updatedCount++;
       } else {
         console.log(`   ❌ [${title}] 彻底抓取失败`);
-        game.cover = `/covers/${id}.jpg`; // 占位图
+        game.cover = `/covers/${coverNameFor(id)}`; // 占位图
       }
     }));
 

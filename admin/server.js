@@ -16,7 +16,7 @@ const multer = require('multer');
 const { exec } = require('child_process');
 const axios = require('axios');
 const cheerio = require('cheerio');
-const { generateId, validateGame } = require('../scripts/lib/utils');
+const { generateId, validateGame, coverNameFor } = require('../scripts/lib/utils');
 const { fetchMobileCover } = require('../scripts/lib/mobile-fetcher');
 const { ensureThumb } = require('../scripts/lib/thumbs');
 
@@ -72,9 +72,9 @@ const upload = multer({
   storage: multer.diskStorage({
     destination: COVERS_DIR,
     filename: (req, file, cb) => {
-      const gameId = req.params.id.replace(/[<>:"/\\|?*]/g, '_');
+      // 短 ASCII 文件名（规避 Pages 长编码路径 404），扩展名按 mimetype
       const ext = EXT_BY_MIME[file.mimetype] || '.jpg';
-      cb(null, `${gameId}${ext}`);
+      cb(null, coverNameFor(req.params.id).replace(/\.jpg$/, ext));
     }
   }),
   fileFilter: (req, file, cb) => {
@@ -217,8 +217,7 @@ app.post('/api/covers/:id/steam', async (req, res) => {
     const { appId } = req.body;
     if (!appId) return res.status(400).json({ error: '缺少 appId' });
 
-    const gameId = req.params.id.replace(/[<>:"/\\|?*]/g, '_');
-    const fileName = `${gameId}.jpg`;
+    const fileName = coverNameFor(req.params.id);
     const filePath = path.join(COVERS_DIR, fileName);
 
     const urls = [
